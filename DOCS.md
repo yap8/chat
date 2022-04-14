@@ -9,6 +9,7 @@ Documentation for [chat](https://github.com/yap8/chat) repository
   - [DB structure](#db-structure)
   - [Routes](#routes)
     - [Users](#users)
+    - [Rooms](#rooms)
 
 ## Backend
 
@@ -53,5 +54,23 @@ Documentation for [chat](https://github.com/yap8/chat) repository
     - Public
 
 - PATCH /api/users/edit
-    - Edit user's data i.e. **name**, **username**, **avatar**, **password**
+    - Edit user's data: **name**, **username**, **avatar**, **password**
+    - Private
+
+#### Rooms
+
+- GET /api/rooms
+    - Get list of rooms the user is a **member** of
+    - Private
+    
+- GET /api/rooms/:id
+    - Get room's **title** and list of **members**
+    - Private
+    
+- POST /api/rooms
+    - Create a room
+    - Private
+    
+- DELETE /api/rooms/:id
+    - Delete a room
     - Private
