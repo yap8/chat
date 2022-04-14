@@ -9,7 +9,7 @@ Documentation for [chat](https://github.com/yap8/chat) repository
 - **users**
     - **id**
     - **name**
-    - **slug**
+    - **username**
     - **email**
     - **password**
     - **avatar**
