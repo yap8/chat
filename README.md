@@ -9,6 +9,8 @@ Fullstack chat application built with React & PHP
 
 **Server:** PHP, MySQL
 
+## Documentation
+[Documentation](https://github.com/yap8/chat/blob/main/docs.md)
 
 ## Authors
 
