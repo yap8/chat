@@ -21,4 +21,4 @@ Fullstack chat application built with React & PHP
 - [Bogdan Objilean](https://github.com/Bodea0001)
 
 ## Documentation
-[Documentation](https://github.com/yap8/chat/blob/main/docs.md)
+[Documentation](https://github.com/yap8/chat/blob/main/DOCS.md)
