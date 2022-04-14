@@ -1,11 +1,11 @@
 
-# Chat
+# Messenger
 
-Fullstack chat application built with React & PHP
+Fullstack messenger application built with React & PHP
 
 ## Table of contents
 
-- [Chat](#chat)
+- [Messenger](#messenger)
   - [Table of contents](#table-of-contents)
   - [Tech Stack](#tech-stack)
   - [Features](#features)
