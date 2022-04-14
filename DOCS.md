@@ -5,11 +5,13 @@ Documentation for [chat](https://github.com/yap8/chat) repository
 
 ## Table of contents
 
-- [Backend](#backend)
-  - [DB structure](#db-structure)
-  - [Routes](#routes)
-    - [Users](#users)
-    - [Rooms](#rooms)
+- [Documentation](#documentation)
+  - [Table of contents](#table-of-contents)
+  - [Backend](#backend)
+    - [DB structure](#db-structure)
+    - [Routes](#routes)
+      - [Users](#users)
+      - [Rooms](#rooms)
 
 ## Backend
 
@@ -22,6 +24,8 @@ Documentation for [chat](https://github.com/yap8/chat) repository
     - **email**
     - **password**
     - **avatar**
+- **conversations**
+    - **id**
 - **rooms**
     - **id**
     - **name**
@@ -30,6 +34,7 @@ Documentation for [chat](https://github.com/yap8/chat) repository
     - **id**
     - **userId**
     - **roomId**
+    - **conversationId**
 - **messages**
     - **id**
     - **userId**
