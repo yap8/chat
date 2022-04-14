@@ -6,14 +6,21 @@ Fullstack chat application built with React & PHP
 ## Table of contents
 
 - [Tech Stack](#tech-stack)
-- [Documentation](#documentation)
+- [Features](#features)
 - [Authors](#authors)
+- [Documentation](#documentation)
 
 ## Tech Stack
 
 **Client:** React, Redux, TailwindCSS
 
 **Server:** PHP, MySQL
+
+## Features
+
+- Authorization & authentication
+- Messages between two users
+- Rooms with multiple users
 
 ## Authors
 
