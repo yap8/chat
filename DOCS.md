@@ -1,6 +1,14 @@
 
 # Documentation
+
 Documentation for [chat](https://github.com/yap8/chat) repository
+
+## Table of contents
+
+- [Backend](#backend)
+  - [DB structure](#db-structure)
+  - [Routes](#routes)
+    - [Users](#users)
 
 ## Backend
 
