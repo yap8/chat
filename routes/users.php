@@ -41,6 +41,44 @@ $app->post('/api/users/register', function (Request $request, Response $response
       'email' => $email
     ]);
   } catch (Exception $error) {
-    return $response->withJson($error, 500);
+    return $response->withJson($error->getMessage(), 500);
+  }
+});
+
+// @desc    Authenticate a user
+// @access  Public
+// @body    { email, password }
+// @return  JWT token
+$app->post('/api/users/login', function (Request $request, Response $response, array $args) {
+  try {
+    // db connection
+    $db = new DB;
+    $conn = $db->connect();
+
+    // get the request body
+    $json = $request->getBody();
+    $data = json_decode($json, true);
+
+    // destructuring to get all fields into separate variables
+    ['email' => $email, 'password' => $password] = $data;
+
+    // find the user that matches given credentials
+    $sql = "SELECT * FROM users WHERE
+            email = '$email' AND
+            password = '$password'";
+
+    // perform the query
+    $result = $conn->query($sql);
+
+    // throw error if no results
+    if (!$result->num_rows) throw new Exception('No user with such credentials');
+
+    // generate a token
+    // ...
+
+    // return the token
+    return $response->withJson('token goes here');
+  } catch (Exception $error) {
+    return $response->withJson($error->getMessage(), 500);
   }
 });
