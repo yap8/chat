@@ -9,6 +9,7 @@ Fullstack messenger application built with React & PHP
   - [Table of contents](#table-of-contents)
   - [Tech Stack](#tech-stack)
   - [Features](#features)
+  - [Run Locally](#run-locally)
   - [Authors](#authors)
   - [Documentation](#documentation)
 
@@ -23,6 +24,38 @@ Fullstack messenger application built with React & PHP
 - Authorization & authentication
 - Messages between two users
 - Rooms with multiple users
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/yap8/messenger.git
+```
+
+Go to the project directory
+
+```bash
+  cd messenger
+```
+
+Install dependencies
+
+```bash
+  composer install
+```
+
+Add these lines to `httpd-vhosts.conf` in your apache config folder
+```bash
+NameVirtualHost *:80
+
+<VirtualHost *:80>
+    DocumentRoot "D:/xampp/htdocs/messenger/public"
+    ServerName localhost
+</VirtualHost>
+```
+
+Start the server
 
 ## Authors
 
