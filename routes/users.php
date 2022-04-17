@@ -5,8 +5,6 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
 $dotenv->load();
 
 // slim
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
 
 // jwt
@@ -19,7 +17,7 @@ $app = AppFactory::create();
 // @access  Public
 // @body    { name, username, email, password }
 // @return  JWT
-$app->post('/api/users/register', function (Request $request, Response $response, array $args) {
+$app->post('/api/users/register', function ($request, $response) {
   try {
     // db connection
     $db = new DB;
@@ -54,7 +52,7 @@ $app->post('/api/users/register', function (Request $request, Response $response
 // @access  Public
 // @body    { email, password }
 // @return  JWT
-$app->post('/api/users/login', function (Request $request, Response $response, array $args) {
+$app->post('/api/users/login', function ($request, $response) {
   try {
     // db connection
     $db = new DB;
