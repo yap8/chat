@@ -18,7 +18,7 @@ $app = AppFactory::create();
 // @desc    Register a new user
 // @access  Public
 // @body    { name, username, email, password }
-// @return  { id, name, username, email }
+// @return  JWT
 $app->post('/api/users/register', function (Request $request, Response $response, array $args) {
   try {
     // db connection
@@ -41,14 +41,10 @@ $app->post('/api/users/register', function (Request $request, Response $response
 
     // get id
     $id = $conn->insert_id;
+    $jwt = JWT::encode(['id' => $id], $_ENV['SECRET_KEY'], 'HS256');
 
     // return result
-    return $response->withJson([
-      'id' => $id,
-      'name' => $name,
-      'username' => $username,
-      'email' => $email
-    ]);
+    return $response->withJson($jwt);
   } catch (Exception $error) {
     return $response->withJson($error->getMessage(), 500);
   }
@@ -57,7 +53,7 @@ $app->post('/api/users/register', function (Request $request, Response $response
 // @desc    Authenticate a user
 // @access  Public
 // @body    { email, password }
-// @return  JWT token
+// @return  JWT
 $app->post('/api/users/login', function (Request $request, Response $response, array $args) {
   try {
     // db connection
