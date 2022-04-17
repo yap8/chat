@@ -1,8 +1,17 @@
 <?php
 
+// environment variables
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
+$dotenv->load();
+
+// slim
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
+
+// jwt
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 
 $app = AppFactory::create();
 
@@ -74,10 +83,11 @@ $app->post('/api/users/login', function (Request $request, Response $response, a
     if (!$result->num_rows) throw new Exception('No user with such credentials');
 
     // generate a token
-    // ...
+    $id = $result->fetch_assoc()['id'];
+    $jwt = JWT::encode(['id' => $id], $_ENV['SECRET_KEY'], 'HS256');
 
     // return the token
-    return $response->withJson('token goes here');
+    return $response->withJson($jwt);
   } catch (Exception $error) {
     return $response->withJson($error->getMessage(), 500);
   }
