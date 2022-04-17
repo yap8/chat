@@ -4,14 +4,9 @@
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
 $dotenv->load();
 
-// slim
-use Slim\Factory\AppFactory;
-
 // jwt
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
-
-$app = AppFactory::create();
 
 // @desc    Register a new user
 // @access  Public
