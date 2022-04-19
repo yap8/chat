@@ -1,7 +1,8 @@
 import { useParams } from 'react-router-dom'
-import Header from './Header'
 
+import Header from './Header'
 import MessagesList from './MessagesList'
+import Form from './Form'
 
 const messages = [
   { id: '322222222', content: 'Hello!', sender: '1' },
@@ -13,10 +14,10 @@ const Chat = () => {
   const { id } = useParams()
 
   return (
-    <div className="w-3/4">
-      <Header name={'name'} />
+    <div className="h-screen w-3/4 flex flex-col justify-between">
+      <Header name={'name ' + id} />
       <MessagesList messages={messages} />
-
+      <Form />
     </div>
   )
 }

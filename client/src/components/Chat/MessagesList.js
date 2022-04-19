@@ -1,6 +1,6 @@
 const MessagesList = () => {
   return (
-    <div>MessagesList</div>
+    <div className="h-full">MessagesList</div>
   )
 }
 
