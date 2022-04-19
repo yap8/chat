@@ -10,7 +10,7 @@ export const login = (email, password) => async dispatch => {
       { email, password }
     )
 
-    // localStorage.setItem('user', data)
+    localStorage.setItem('user', data)
 
     dispatch({
       type: USER_LOGIN,

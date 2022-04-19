@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from "react-router-dom"
+import { toast } from 'react-toastify'
 
 import Form, { FormGroup, FormInput, FormTitle } from "../components/Form/Form"
 import Button from "../components/Button"
-import { Link } from "react-router-dom"
 import { login } from '../redux/actions/userActions'
-import { toast } from 'react-toastify'
 
 const Login = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
+  const user = useSelector(state => state.user)
   const { success, error, message } = useSelector(state => state.request)
 
   const [formData, setFormData] = useState({
@@ -17,12 +19,27 @@ const Login = () => {
     password: ''
   })
 
+  useEffect(() => {
+    if (user) navigate('/')
+  }, [user, navigate])
+
+  useEffect(() => {
+    if (error && message) toast.error(message)
+
+    if (success) navigate('/home')
+  }, [success, error, message, navigate])
+
   const handleSubmit = (e) => {
     e.preventDefault()
 
     const { email, password } = formData
 
     dispatch(login(email, password))
+
+    setFormData({
+      ...formData,
+      password: ''
+    })
   }
 
   const handleChange = e => {
@@ -31,12 +48,6 @@ const Login = () => {
       [e.target.name]: e.target.value
     })
   }
-
-  useEffect(() => {
-    if (error && message) toast.error(message)
-
-    if (success && message) toast.success(message)
-  }, [success, error, message])
 
   return (
     <div className='p-4 bg-white shadow rounded'>
