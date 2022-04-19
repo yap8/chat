@@ -19,7 +19,7 @@ const FormInput = ({ name, className, label, ...props }) => {
       )}
       <input
         name={name}
-        type={name === 'password' ? 'password' : 'text'}
+        type={name === 'password' ? 'password' : name === 'email' ? 'email' : 'text'}
         placeholder={capitalize(name)}
         id={name}
         className={mergeClasses(classes)}
