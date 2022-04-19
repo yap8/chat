@@ -7,7 +7,7 @@ import Home from './pages/Home';
 
 function App() {
   const classes = {
-    base: 'h-screen bg-white flex items-center justify-center container',
+    base: 'h-screen bg-slate-50 flex items-center justify-center container',
     dark: 'dark:bg-slate-700'
   }
 

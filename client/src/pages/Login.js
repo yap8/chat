@@ -8,7 +8,7 @@ const Login = () => {
   }
 
   return (
-    <div className='p-4 shadow rounded'>
+    <div className='p-4 bg-white shadow rounded'>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
           <FormTitle className="text-center">Login</FormTitle>
