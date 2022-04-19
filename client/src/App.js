@@ -16,7 +16,6 @@ function App() {
         <div className="h-screen flex items-center justify-center container">
           <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='/home' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
           </Routes>
