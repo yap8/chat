@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import Form, { FormGroup, FormInput, FormTitle } from "../components/Form/Form"
 import Button from "../components/Button"
@@ -8,6 +8,8 @@ import { login } from '../redux/actions/userActions'
 
 const Login = () => {
   const dispatch = useDispatch()
+
+  const { success, error, message } = useSelector(state => state.request)
 
   const [formData, setFormData] = useState({
     email: '',
@@ -28,6 +30,12 @@ const Login = () => {
       [e.target.name]: e.target.value
     })
   }
+
+  useEffect(() => {
+    if (error && message) alert(message)
+
+    if (success && message) alert(message)
+  }, [success, error, message])
 
   return (
     <div className='p-4 bg-white shadow rounded'>
