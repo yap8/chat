@@ -1,13 +1,13 @@
 import Header from "./Header"
 import SearchForm from "./SearchForm"
-import ChatList from "./ChatList"
+import Chats from "./Chats"
 
 const Sidebar = () => {
   return (
-    <div className="w-1/4">
+    <div className="w-1/4 h-screen p-4">
       <Header />
       <SearchForm />
-      <ChatList />
+      <Chats />
     </div>
   )
 }

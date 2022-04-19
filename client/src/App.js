@@ -9,11 +9,11 @@ import Home from './pages/Home';
 function App() {
   return (
     <Router>
-      <div className="bg-slate-50">
+      <div>
         <ToastContainer
           position="top-center"
         />
-        <div className="h-screen flex items-center justify-center container">
+        <div className="bg-slate-50 h-screen flex items-center justify-center">
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
