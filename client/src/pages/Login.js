@@ -5,6 +5,7 @@ import Form, { FormGroup, FormInput, FormTitle } from "../components/Form/Form"
 import Button from "../components/Button"
 import { Link } from "react-router-dom"
 import { login } from '../redux/actions/userActions'
+import { toast } from 'react-toastify'
 
 const Login = () => {
   const dispatch = useDispatch()
@@ -32,9 +33,9 @@ const Login = () => {
   }
 
   useEffect(() => {
-    if (error && message) alert(message)
+    if (error && message) toast.error(message)
 
-    if (success && message) alert(message)
+    if (success && message) toast.success(message)
   }, [success, error, message])
 
   return (
