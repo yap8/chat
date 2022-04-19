@@ -16,6 +16,7 @@ function App() {
         <div className="bg-slate-50 h-screen flex items-center justify-center">
           <Routes>
             <Route path='/' element={<Home />} />
+            <Route path='/chats/:id' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
           </Routes>
