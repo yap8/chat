@@ -13,10 +13,10 @@ const ChatItem = ({ id, name, lastMessage, unread }) => {
         </div>
         <div className="w-full truncate mr-4">
           <h4 className="font-semibold">{name}</h4>
-          <p className="truncate">{lastMessage}</p>
+          <p className="truncate">{lastMessage.text}</p>
         </div>
         <div className="flex flex-col items-end">
-          <div className="text-gray-400">28/03/2022</div>
+          <div className={unread ? 'text-blue-500' : 'text-gray-400'}>{lastMessage.date}</div>
           {unread ? (
             <div className="flex items-center justify-center bg-blue-500 text-white w-7 h-7 rounded-full">{unread}</div>
           ) : ''}
