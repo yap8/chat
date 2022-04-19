@@ -11,8 +11,8 @@ const SearchForm = () => {
   const clearForm = () => setFormData('')
 
   return (
-    <div className="py-4 flex items-center relative">
-      <label className="absolute left-3 cursor-text" htmlFor="search">
+    <div className="p-4 flex items-center relative">
+      <label className="absolute left-6 cursor-text" htmlFor="search">
         <FaSearch className="text-gray-500 text-lg" />
       </label>
       <input
@@ -24,7 +24,7 @@ const SearchForm = () => {
         onChange={handleChange}
       />
       <button
-        className={`absolute right-3 group ${formData.length ? '' : 'hidden'}`}
+        className={`absolute right-6 group ${formData.length ? '' : 'hidden'}`}
         onClick={clearForm}
       >
         <FaTimes className="text-gray-500 text-lg transition group-hover:text-gray-800" />
