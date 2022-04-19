@@ -26,7 +26,7 @@ const Login = () => {
   useEffect(() => {
     if (error && message) toast.error(message)
 
-    if (success) navigate('/home')
+    if (success) navigate('/')
   }, [success, error, message, navigate])
 
   const handleSubmit = (e) => {

@@ -27,6 +27,23 @@ export const login = (email, password) => async dispatch => {
   }
 }
 
+export const register = (name, username, email, password) => async dispatch => {
+  try {
+    await axios.post(
+      '/api/users/register',
+      { name, username, email, password }
+    )
+
+    dispatch(setSuccess(true))
+    dispatch(setMessage('User successfully registered'))
+  } catch (error) {
+    dispatch(setError(true))
+    dispatch(setMessage(error.response.data))
+  } finally {
+    setTimeout(() => dispatch(requestReset()), 100)
+  }
+}
+
 export const logout = () => {
   localStorage.removeItem('user')
 
