@@ -1,10 +1,32 @@
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+
 import Form, { FormGroup, FormInput, FormTitle } from "../components/Form/Form"
 import Button from "../components/Button"
 import { Link } from "react-router-dom"
+import { login } from '../redux/actions/userActions'
 
 const Login = () => {
+  const dispatch = useDispatch()
+
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  })
+
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    const { email, password } = formData
+
+    dispatch(login(email, password))
+  }
+
+  const handleChange = e => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
   }
 
   return (
@@ -17,12 +39,16 @@ const Login = () => {
           <FormInput
             name='email'
             label
+            value={formData.email}
+            onChange={handleChange}
           />
         </FormGroup>
         <FormGroup>
           <FormInput
             name='password'
             label
+            value={formData.password}
+            onChange={handleChange}
           />
         </FormGroup>
         <FormGroup>
