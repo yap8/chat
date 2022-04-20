@@ -6,7 +6,7 @@ const MessagesList = () => {
   const messages = useSelector(state => state.messages)
 
   return (
-    <ul className="h-full p-4 flex flex-col justify-end">
+    <ul className="p-4 flex flex-col justify-endl overflow-auto">
       {messages.map(message => <Message message={message} />)}
     </ul>
   )
