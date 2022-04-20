@@ -12,7 +12,10 @@ use Firebase\JWT\Key;
 $private = function($request, $handler) {
   try {
     // get Authorization header
-    $jwt = $request->getHeaders()['Authorization'][0];
+    $authorization = $request->getHeaders()['Authorization'][0];
+
+    // get jwt
+    $jwt = explode(' ', $authorization)[1];
 
     // decode the token if it's malformed throw exception
     $user = JWT::decode($jwt, new Key($_ENV['SECRET_KEY'], 'HS256'))->id;
