@@ -43,9 +43,9 @@ $app->post('/api/message', function ($request, $response) {
 
 // @desc    Get a list of messages
 // @access  Private
-// @body    { chatId }
+// @body    {}
 // @return  array of messages
-$app->get('/api/messages', function ($request, $response) {
+$app->get('/api/messages/{chatId}', function ($request, $response, $params) {
   try {
     // db connection
     $db = new DB;
@@ -54,12 +54,8 @@ $app->get('/api/messages', function ($request, $response) {
     // get current user id
     $userId = $request->getAttribute('user');
 
-    // get the request body
-    $json = $request->getBody();
-    $data = json_decode($json, true);
-
-    // destructuring to get all fields into separate variables
-    ['chatId' => $chatId] = $data;
+    // destructuring to get params
+    ['chatId' => $chatId] = $params;
 
     // find messages
     $sql = "SELECT * FROM messages WHERE chat_id = '$chatId';";
