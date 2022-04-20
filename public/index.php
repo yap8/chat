@@ -11,5 +11,6 @@ $app = AppFactory::create();
 // routes
 require __DIR__ . '/../routes/userRoutes.php';
 require __DIR__ . '/../routes/homeRoutes.php';
+require __DIR__ . '/../routes/chatRoutes.php';
 
 $app->run();
