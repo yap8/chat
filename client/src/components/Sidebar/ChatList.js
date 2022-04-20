@@ -12,9 +12,9 @@ const ChatList = () => {
           <ChatItem
             key={chat.id}
             id={chat.id}
-            name={chat.name}
-            lastMessage={chat.lastMessage}
-            unread={chat.unread}
+            title={chat.title}
+            // lastMessage={chat.lastMessage}
+            // unread={chat.unread}
           />
         ))}
       </ul>

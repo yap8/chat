@@ -5,6 +5,7 @@ import Chat from "../components/Chat/Chat"
 import Sidebar from "../components/Sidebar/Sidebar"
 import usePrivateRoute from "../hooks/usePrivateRoute"
 import { fetchMe } from '../redux/actions/userActions'
+import { fetchChats } from '../redux/actions/chatsActions'
 
 const Home = () => {
   usePrivateRoute()
@@ -13,6 +14,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(fetchMe())
+    dispatch(fetchChats())
   }, [dispatch])
 
   return (
