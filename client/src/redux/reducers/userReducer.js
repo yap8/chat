@@ -1,11 +1,20 @@
+import { USER_FETCH_ME } from "../actions/types"
+
 const initialState = {
-  id: '123123',
-  name: 'some name',
+  id: null,
+  name: null,
+  username: null,
+  email: null,
   avatar: null
 }
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
+    case USER_FETCH_ME:
+      return {
+        ...state,
+        ...action.payload
+      }
     default:
       return state
   }
