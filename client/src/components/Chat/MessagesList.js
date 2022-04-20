@@ -15,7 +15,7 @@ const MessagesList = () => {
 
   return (
     <ul className="p-4 flex flex-col-reverse justify-endl overflow-auto">
-      {messages.map(message => <Message message={message} />)}
+      {messages.map(message => <Message key={message.id} message={message} />)}
     </ul>
   )
 }
