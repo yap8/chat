@@ -1,7 +1,6 @@
 <?php
 
-require '../middleware/private.php';
-
+// test route
 $app->get('/api/home', function($request, $response, $args) {
   // get user id
   $user = $request->getAttribute('user');

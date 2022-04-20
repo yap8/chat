@@ -81,3 +81,35 @@ $app->post('/api/users/login', function ($request, $response) {
     return $response->withJson($error->getMessage(), 500);
   }
 });
+
+// @desc    Get current user info
+// @access  Private
+// @body    {}
+// @return  { id, name, username, email }
+$app->get('/api/users/me', function ($request, $response) {
+  try {
+    // db connection
+    $db = new DB;
+    $conn = $db->connect();
+
+    // get current user id
+    $userId = $request->getAttribute('user');
+
+    // find the user that matches given credentials
+    $sql = "SELECT * FROM users WHERE id = '$userId';";
+
+    // perform the query
+    $result = $conn->query($sql);
+
+    // fetch the result
+    $user = $result->fetch_assoc();
+
+    // remove password from user object
+    unset($user['password']);
+
+    // return the token
+    return $response->withJson($user);
+  } catch (Exception $error) {
+    return $response->withJson($error->getMessage(), 500);
+  }
+})->add($private);
