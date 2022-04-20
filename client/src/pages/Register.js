@@ -11,7 +11,7 @@ const Register = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const user = useSelector(state => state.user)
+  const auth = useSelector(state => state.auth)
   const { success, error, message } = useSelector(state => state.request)
 
   const [formData, setFormData] = useState({
@@ -22,8 +22,8 @@ const Register = () => {
   })
 
   useEffect(() => {
-    if (user) navigate('/')
-  }, [user, navigate])
+    if (auth) navigate('/')
+  }, [auth, navigate])
 
   useEffect(() => {
     if (error && message) toast.error(message)
