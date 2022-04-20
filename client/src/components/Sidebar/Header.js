@@ -34,10 +34,16 @@ const Header = () => {
           </MenuButton>
         )}
       >
-        <MenuItem>
-          <Link to="/settings">Settings</Link>
+        <MenuItem className="p-0">
+          <Link
+            className="py-2 px-6 block w-full h-full"
+            to="/settings"
+          >Settings</Link>
         </MenuItem>
-        <MenuItem onClick={handleLogout}>Logout</MenuItem>
+        <MenuItem
+          className="py-2 px-6"
+          onClick={handleLogout}
+        >Logout</MenuItem>
       </Menu>
     </div>
   )
