@@ -11,9 +11,9 @@ const Header = () => {
         <FaUserCircle className="text-5xl text-gray-400" />
       </div>
       <h1 className="w-full font-semibold text-2xl">{title}</h1>
-      <button className="group">
+      {/* <button className="group">
         <BsThreeDotsVertical className="w-6 h-6 text-gray-400 transition group-hover:text-gray-800" />
-      </button>
+      </button> */}
     </div>
   )
 }
