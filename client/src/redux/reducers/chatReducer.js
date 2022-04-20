@@ -1,8 +1,4 @@
-const initialState = {
-  id: '321321',
-  pic: null,
-  title: 'some title'
-}
+const initialState = null
 
 const chatReducer = (state = initialState, action) => {
   switch (action.type) {

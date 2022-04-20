@@ -9,7 +9,7 @@ const ChatItem = ({ id, title}) => {
 
   const linkClasses = {
     base: 'p-4 flex transition group-hover:bg-gray-200',
-    active: chat.id === id ? 'bg-gray-200' : ''
+    active: chat && chat.id === id ? 'bg-gray-200' : ''
   }
 
   return (
