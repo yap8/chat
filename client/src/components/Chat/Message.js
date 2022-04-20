@@ -5,8 +5,8 @@ const Message = ({ message }) => {
   const user = useSelector(state => state.user)
 
   const classes = {
-    base: 'py-2 px-4 rounded bg-white shadow mb-2 flex relative last:mb-0',
-    sender: message.senderId === user.id ? 'ml-auto' : 'mr-auto'
+    base: 'py-2 px-4 rounded bg-white shadow mb-2 flex relative first:mb-0',
+    sender: message.sender_id === user.id ? 'ml-auto' : 'mr-auto'
   }
 
   return (
