@@ -74,18 +74,34 @@ $app->get('/api/chats', function ($request, $response) {
     // get current user id
     $userId = $request->getAttribute('user');
 
-    // find the user that matches given credentials
-    $sql = "SELECT * FROM chats WHERE
+    // find ids of chats the user is a participant of
+    $sql = "SELECT * FROM participants WHERE
             user_id = '$userId'";
 
     // perform the query
     $result = $conn->query($sql);
 
-    // throw error if no results
-    if (!$result->num_rows) throw new Exception('No chats');
+    // get array of chat ids
+    $ids = array_column($result->fetch_all(MYSQLI_ASSOC), 'chat_id');
+
+    // find chats the user is participant of
+    $sql = "SELECT * FROM chats WHERE";
+
+    foreach ($ids as $key => $id) {
+      if ($key === array_key_last($ids)) {
+        $sql .= " id = '$id';";
+
+        break;
+      }
+
+      $sql .= " id = '$id' OR";
+    }
+
+    // perform the query
+    $result = $conn->query($sql);
 
     // return the array of chats
-    return $response->withJson($jwt);
+    return $response->withJson($result->fetch_all(MYSQLI_ASSOC));
   } catch (Exception $error) {
     return $response->withJson($error->getMessage(), 500);
   }
