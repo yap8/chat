@@ -5,7 +5,7 @@ import { toast } from "react-toastify"
 
 import Form, { FormGroup, FormInput, FormTitle } from "../components/Form/Form"
 import Button from "../components/Button"
-import { register } from "../redux/actions/userActions"
+import { register } from "../redux/actions/authActions"
 
 const Register = () => {
   const dispatch = useDispatch()

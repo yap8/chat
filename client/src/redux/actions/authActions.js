@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { USER_LOGIN, USER_LOGOUT } from "./types"
+import { AUTH_LOGIN, AUTH_LOGOUT } from "./types"
 import { requestReset, setError, setMessage, setSuccess } from "./requestActions"
 
 export const login = (email, password) => async dispatch => {
@@ -10,10 +10,10 @@ export const login = (email, password) => async dispatch => {
       { email, password }
     )
 
-    localStorage.setItem('user', data)
+    localStorage.setItem('auth', data)
 
     dispatch({
-      type: USER_LOGIN,
+      type: AUTH_LOGIN,
       payload: data
     })
 
@@ -45,9 +45,9 @@ export const register = (name, username, email, password) => async dispatch => {
 }
 
 export const logout = () => {
-  localStorage.removeItem('user')
+  localStorage.removeItem('auth')
 
   return {
-    type: USER_LOGOUT
+    type: AUTH_LOGOUT
   }
 }

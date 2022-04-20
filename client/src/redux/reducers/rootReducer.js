@@ -3,11 +3,11 @@ import chatReducer from "./chatReducer";
 import chatsReducer from "./chatsReducer";
 import messagesReducer from "./messagesReducer";
 import requestReducer from "./requestReducer";
-import userReducer from "./userReducer";
+import authReducer from "./authReducer";
 
 const rootReducer = combineReducers({
   request: requestReducer,
-  user: userReducer,
+  auth: authReducer,
   chats: chatsReducer,
   chat: chatReducer,
   messages: messagesReducer
