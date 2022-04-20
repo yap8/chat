@@ -13,3 +13,6 @@ export const USER_FETCH_ME = 'USER_FETCH_ME'
 
 // chats
 export const CHATS_FETCH_CHATS = 'CHATS_FETCH_CHATS'
+
+// chat
+export const CHAT_SET_CHAT = 'CHAT_SET_CHAT'
