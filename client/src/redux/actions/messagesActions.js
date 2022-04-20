@@ -17,3 +17,19 @@ export const fetchMessages = (chatId) => async dispatch => {
     dispatch(requestReset())
   }
 }
+
+export const sendMessage = (chatId, content) => async dispatch => {
+  try {
+    await api.post(`/api/message`, {
+      chatId,
+      content
+    })
+
+    dispatch(fetchMessages(chatId))
+  } catch (error) {
+    dispatch(setError(true))
+    dispatch(setMessage(error.response.data))
+  } finally {
+    dispatch(requestReset())
+  }
+}

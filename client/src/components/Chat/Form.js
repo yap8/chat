@@ -1,10 +1,12 @@
+import { sendMessage } from '../../redux/actions/messagesActions'
+import { useDispatch, useSelector } from 'react-redux'
 // import { ImAttachment } from 'react-icons/im'
-import { useDispatch } from 'react-redux'
 import { MdSend } from 'react-icons/md'
 import { useState } from 'react'
 
 const Form = () => {
-  // const dispatch = useDispatch
+  const chatId = useSelector(state => state.chat.id)
+  const dispatch = useDispatch()
   const [formData, setFormData] = useState({
     text: ''
   })
@@ -12,7 +14,11 @@ const Form = () => {
   const handleSubmit = e => {
     e.preventDefault()
 
-    // dispatch(sendMessage())
+    dispatch(sendMessage(chatId, formData.text))
+
+    setFormData({
+      text: ''
+    })
   }
 
   const handleChange = e => {
