@@ -6,6 +6,7 @@ import '@szhsin/react-menu/dist/index.css'
 import '@szhsin/react-menu/dist/transitions/slide.css'
 
 import { logout } from '../../redux/actions/authActions'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   const { name, avatar } = useSelector(state => state.user)
@@ -33,7 +34,9 @@ const Header = () => {
           </MenuButton>
         )}
       >
-        <MenuItem onClick={() => console.log('settings clicked')}>Settings</MenuItem>
+        <MenuItem>
+          <Link to="/settings">Settings</Link>
+        </MenuItem>
         <MenuItem onClick={handleLogout}>Logout</MenuItem>
       </Menu>
     </div>
