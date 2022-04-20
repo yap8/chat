@@ -15,5 +15,6 @@ require '../middleware/private.php';
 require __DIR__ . '/../routes/userRoutes.php';
 require __DIR__ . '/../routes/homeRoutes.php';
 require __DIR__ . '/../routes/chatRoutes.php';
+require __DIR__ . '/../routes/messageRoutes.php';
 
 $app->run();
