@@ -23,7 +23,7 @@ export const login = (email, password) => async dispatch => {
     dispatch(setError(true))
     dispatch(setMessage(error.response.data))
   } finally {
-    setTimeout(() => dispatch(requestReset()), 100)
+    dispatch(requestReset())
   }
 }
 
@@ -40,7 +40,7 @@ export const register = (name, username, email, password) => async dispatch => {
     dispatch(setError(true))
     dispatch(setMessage(error.response.data))
   } finally {
-    setTimeout(() => dispatch(requestReset()), 100)
+    dispatch(requestReset())
   }
 }
 
