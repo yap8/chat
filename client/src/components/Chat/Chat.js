@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
 import Header from './Header'
@@ -13,11 +14,15 @@ const messages = [
 const Chat = () => {
   const { id } = useParams()
 
+  const chat = useSelector(state => state.chat)
+
   return (
     <div className="h-screen w-3/4 flex flex-col justify-between">
-      <Header name={'name ' + id} />
-      <MessagesList messages={messages} />
-      <Form />
+      {chat && <>
+        <Header name={'name ' + id} />
+        <MessagesList messages={messages} />
+        <Form />
+      </>}
     </div>
   )
 }
