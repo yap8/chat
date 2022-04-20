@@ -1,6 +1,14 @@
+import { useSelector } from "react-redux"
+
+import Message from './Message'
+
 const MessagesList = () => {
+  const messages = useSelector(state => state.messages)
+
   return (
-    <div className="h-full">MessagesList</div>
+    <ul className="h-full p-4 flex flex-col justify-end">
+      {messages.map(message => <Message message={message} />)}
+    </ul>
   )
 }
 
