@@ -12,7 +12,11 @@ use Firebase\JWT\Key;
 $private = function($request, $handler) {
   try {
     // get Authorization header
-    $authorization = $request->getHeaders()['Authorization'][0];
+    if (isset($request->getHeaders()['authorization'])) {
+      $authorization = $request->getHeaders()['authorization'][0];
+    } else {
+      $authorization = $request->getHeaders()['Authorization'][0];
+    }
 
     // get jwt
     $jwt = explode(' ', $authorization)[1];
