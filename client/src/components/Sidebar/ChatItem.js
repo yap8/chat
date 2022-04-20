@@ -5,7 +5,7 @@ const ChatItem = ({ id, name, lastMessage, unread }) => {
   return (
     <li className="group">
       <Link
-        className="p-4 flex rounded transition group-hover:bg-gray-200"
+        className="p-4 flex transition group-hover:bg-gray-200"
         to={`/chats/${id}`}
       >
         <div className="w-12 h-12 mr-4">
