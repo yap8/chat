@@ -9,10 +9,12 @@ const Message = ({ message }) => {
     sender: message.sender_id === user.id ? 'ml-auto' : 'mr-auto'
   }
 
+  const time = message.created_at.split(' ')[1].substring(0, message.created_at.split(' ')[1].length - 3)
+
   return (
     <li className={mergeClasses(classes)}>
       <p className="mr-4">{message.content}</p>
-      <p className="text-gray-500 relative top-1">{message.time}</p>
+      <p className="text-gray-500 relative top-1">{time}</p>
     </li>
   )
 }
