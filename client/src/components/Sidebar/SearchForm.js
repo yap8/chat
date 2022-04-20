@@ -19,7 +19,7 @@ const SearchForm = () => {
         id="search"
         className="w-full py-2 px-10 rounded bg-gray-200 text-xl text-gray-800"
         type="text"
-        placeholder="Search or start new chat"
+        placeholder="Search"
         value={formData}
         onChange={handleChange}
       />
