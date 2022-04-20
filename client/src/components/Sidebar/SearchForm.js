@@ -11,7 +11,7 @@ const SearchForm = () => {
   const clearForm = () => setFormData('')
 
   return (
-    <div className="p-4 flex items-center relative">
+    <div className="p-4 flex items-center border-b relative">
       <label className="absolute left-7 cursor-text" htmlFor="search">
         <FaSearch className="text-gray-500 text-lg" />
       </label>

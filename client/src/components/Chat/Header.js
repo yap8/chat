@@ -6,7 +6,7 @@ const Header = () => {
   const { title } = useSelector(state => state.chat)
 
   return (
-    <div className="flex justify-between items-center bg-white p-4 shadow">
+    <div className="flex justify-between items-center border-b bg-white p-4 shadow">
       <div className="w-12 h-12 mr-4">
         <FaUserCircle className="text-5xl text-gray-400" />
       </div>

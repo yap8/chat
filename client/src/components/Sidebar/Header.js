@@ -6,7 +6,7 @@ const Header = () => {
   const { name, avatar } = useSelector(state => state.user)
   
   return (
-    <div className="flex justify-between items-center bg-white p-4">
+    <div className="flex justify-between items-center border-b bg-white p-4">
       <div className="w-12 h-12 mr-4">
         {avatar ? (
           <img src={avatar} alt="profile pic" />
