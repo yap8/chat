@@ -11,12 +11,14 @@ const Message = ({ message }) => {
 
   const time = message.created_at.split(' ')[1].substring(0, message.created_at.split(' ')[1].length - 3)
 
+  const myMessage = message.sender_id === user.id
+
   const handleDelete = () => {
     dispatch(deleteMessage(chatId, message.id))
   }
 
   return (
-    <li className={`relative mb-2 first:mb-0 ${message.sender_id === user.id ? ' ml-auto' : ' mr-auto'}`}>
+    <li className={`relative mb-2 first:mb-0 ${myMessage ? ' ml-auto' : ' mr-auto'}`}>
       <Menu
         transition
         menuButton={(
@@ -29,10 +31,12 @@ const Message = ({ message }) => {
         <MenuItem
           className="py-2 px-6"
         >Copy</MenuItem>
-        <MenuItem
-          className="py-2 px-6"
-          onClick={handleDelete}
-        >Delete</MenuItem>
+        {myMessage && (
+          <MenuItem
+            className="py-2 px-6"
+            onClick={handleDelete}
+          >Delete</MenuItem>
+        )}
       </Menu>
     </li>
   )
