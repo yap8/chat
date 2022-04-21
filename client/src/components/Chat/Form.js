@@ -14,6 +14,8 @@ const Form = () => {
   const handleSubmit = e => {
     e.preventDefault()
 
+    if (!formData.text.trim()) return
+
     dispatch(sendMessage(chatId, formData.text))
 
     setFormData({
