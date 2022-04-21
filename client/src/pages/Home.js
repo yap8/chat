@@ -25,7 +25,7 @@ const Home = () => {
       {user && chats ? <>
         <Sidebar />
         <Chat />
-      </> : <Spinner />}
+      </> : <Spinner className="text-6xl" />}
     </div>
   )
 }

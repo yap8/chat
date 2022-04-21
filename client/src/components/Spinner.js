@@ -1,8 +1,15 @@
 import { FaSpinner } from 'react-icons/fa'
 
-const Spinner = () => {
+import mergeClasses from '../helpers/mergeClasses'
+
+const Spinner = ({ className }) => {
+  const classes = {
+    base: 'animate-spin text-blue-500',
+    inherited: className
+  }
+
   return (
-    <FaSpinner className="animate-spin text-blue-500 text-6xl" />
+    <FaSpinner className={mergeClasses(classes)} />
   )
 }
 
