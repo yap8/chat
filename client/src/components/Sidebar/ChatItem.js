@@ -22,7 +22,7 @@ const ChatItem = ({ id, title, lastMessageContent, lastMessageTime }) => {
           <FaUserCircle className="text-5xl text-gray-400" />
         </div>
         <div className="w-full truncate mr-4">
-          <h4 className="font-semibold">{title}</h4>
+          <h4 className="font-semibold truncate">{title}</h4>
           <p className="text-gray-400 truncate">{lastMessageContent}</p>
         </div>
         <div className="flex flex-col items-end">
