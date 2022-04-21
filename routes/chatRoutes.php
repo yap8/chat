@@ -88,13 +88,15 @@ $app->get('/api/chats', function ($request, $response) {
     $lastMessages = [];
 
     foreach ($ids as $key => $id) {
-      $sql = "SELECT * FROM messages WHERE chat_id = '$id' ORDER BY id DESC LIMIT 1;";
-
-      // perform the query
-      $result = $conn->query($sql);
-
-      // fetch last messages
-      array_push($lastMessages, $result->fetch_assoc());
+      if (isset($ids)) {
+        $sql = "SELECT * FROM messages WHERE chat_id = '$id' ORDER BY id DESC LIMIT 1;";
+  
+        // perform the query
+        $result = $conn->query($sql);
+  
+        // fetch last messages
+        array_push($lastMessages, $result->fetch_assoc());
+      }
     }
 
     // get last messages content and created_at
@@ -102,32 +104,34 @@ $app->get('/api/chats', function ($request, $response) {
     $lastMessagesCreatedAt = array_column($lastMessages, 'created_at');
 
     // find chats the user is participant of
-    $sql = "SELECT * FROM chats WHERE";
-
-    foreach ($ids as $key => $id) {
-      if ($key === array_key_last($ids)) {
-        $sql .= " id = '$id';";
-
-        break;
+    if ($ids) {
+      $sql = "SELECT * FROM chats WHERE";
+  
+      foreach ($ids as $key => $id) {
+        if ($key === array_key_last($ids)) {
+          $sql .= " id = '$id';";
+  
+          break;
+        }
+  
+        $sql .= " id = '$id' OR";
       }
+  
+      // perform the query
+      $result = $conn->query($sql);
+  
+      // fetch chats
+      $chats = $result->fetch_all(MYSQLI_ASSOC);
 
-      $sql .= " id = '$id' OR";
-    }
-
-    // perform the query
-    $result = $conn->query($sql);
-
-    // fetch chats
-    $chats = $result->fetch_all(MYSQLI_ASSOC);
-
-    // merge chats and last messages
-    foreach ($chats as $index => $chat) {
-      $chats[$index]['lastMessageContent'] = isset($lastMessagesContent[$index]) ? $lastMessagesContent[$index] : null;
-      $chats[$index]['lastMessageCreatedAt'] = isset($lastMessagesCreatedAt[$index]) ? $lastMessagesCreatedAt[$index] : null;
+      // merge chats and last messages
+      foreach ($chats as $index => $chat) {
+        $chats[$index]['lastMessageContent'] = isset($lastMessagesContent[$index]) ? $lastMessagesContent[$index] : null;
+        $chats[$index]['lastMessageCreatedAt'] = isset($lastMessagesCreatedAt[$index]) ? $lastMessagesCreatedAt[$index] : null;
+      }
     }
 
     // return the array of chats
-    return $response->withJson($chats);
+    return $response->withJson(isset($chats) ? $chats : []);
   } catch (Exception $error) {
     return $response->withJson($error->getMessage(), 500);
   }
