@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 
 import mergeClasses from '../../helpers/mergeClasses'
 
-const ChatItem = ({ id, title}) => {
+const ChatItem = ({ id, title, lastMessageContent, lastMessageTime }) => {
   const chat = useSelector(state => state.chat)
 
   const linkClasses = {
@@ -23,14 +23,11 @@ const ChatItem = ({ id, title}) => {
         </div>
         <div className="w-full truncate mr-4">
           <h4 className="font-semibold">{title}</h4>
-          {/* <p className="truncate">{lastMessage.text}</p> */}
+          <p className="text-gray-400">{lastMessageContent}</p>
         </div>
-        {/* <div className="flex flex-col items-end">
-          <div className={unread ? 'text-blue-500' : 'text-gray-400'}>{lastMessage.date}</div>
-          {unread ? (
-            <div className="flex items-center justify-center bg-blue-500 text-white w-7 h-7 rounded-full">{unread}</div>
-          ) : ''}
-        </div> */}
+        <div className="flex flex-col items-end">
+          <div className="text-gray-400">{lastMessageTime}</div>
+        </div>
       </Link>
     </li>
   )

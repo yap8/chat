@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux"
+import { getTime } from "../../helpers/dateTime"
 
 import ChatItem from "./ChatItem"
 
@@ -13,8 +14,8 @@ const ChatList = () => {
             key={chat.id}
             id={chat.id}
             title={chat.title}
-            // lastMessage={chat.lastMessage}
-            // unread={chat.unread}
+            lastMessageContent={chat.lastMessageContent}
+            lastMessageTime={chat.lastMessageCreatedAt && getTime(chat.lastMessageCreatedAt)}
           />
         ))}
       </ul>
