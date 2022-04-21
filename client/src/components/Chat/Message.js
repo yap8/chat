@@ -5,13 +5,14 @@ import '@szhsin/react-menu/dist/transitions/slide.css'
 import '@szhsin/react-menu/dist/index.css'
 
 import { deleteMessage } from '../../redux/actions/messagesActions'
+import { getTime } from '../../helpers/dateTime';
 
 const Message = ({ message }) => {
   const chatId = useSelector(state => state.chat.id)
   const user = useSelector(state => state.user)
   const dispatch = useDispatch()
 
-  const time = message.created_at.split(' ')[1].substring(0, message.created_at.split(' ')[1].length - 3)
+  const time = getTime(message.created_at)
 
   const myMessage = message.sender_id === user.id
 
