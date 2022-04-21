@@ -22,7 +22,7 @@ const MessagesList = () => {
 
   return (
     <ul className="h-full p-4 flex flex-col-reverse items-end overflow-auto">
-      {messages.reverse().map(message => <Message key={message.id} message={message} />)}
+      {messages.map(message => <Message key={message.id} message={message} />)}
     </ul>
   )
 }
