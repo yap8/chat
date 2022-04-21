@@ -1,7 +1,9 @@
 import { Menu, MenuItem, MenuButton } from '@szhsin/react-menu'
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useDispatch, useSelector } from 'react-redux'
 import '@szhsin/react-menu/dist/transitions/slide.css'
 import '@szhsin/react-menu/dist/index.css'
+
 import { deleteMessage } from '../../redux/actions/messagesActions'
 
 const Message = ({ message }) => {
@@ -28,9 +30,11 @@ const Message = ({ message }) => {
           </MenuButton>
         )}
       >
-        <MenuItem
-          className="py-2 px-6"
-        >Copy</MenuItem>
+        <CopyToClipboard text={message.content}>
+          <MenuItem
+            className="py-2 px-6"
+          >Copy</MenuItem>
+        </CopyToClipboard>
         {myMessage && (
           <MenuItem
             className="py-2 px-6"
