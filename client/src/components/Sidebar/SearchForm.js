@@ -20,7 +20,7 @@ const SearchForm = () => {
         className="w-full py-2 px-10 rounded bg-gray-200 text-xl text-gray-800"
         type="text"
         placeholder="Search"
-        autocomplete="off"
+        autoComplete="off"
         value={formData}
         onChange={handleChange}
       />
