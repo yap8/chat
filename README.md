@@ -19,6 +19,8 @@ Fullstack messenger application built with React & PHP
 
 **Server:** [PHP](https://www.php.net/), [MySQL](https://www.mysql.com/) (MySQLi), [Slim](https://www.slimframework.com/), [Composer](https://getcomposer.org/)
 
+**Other:** [JWT](https://jwt.io/), [Postman](https://www.postman.com/) (MySQLi)
+
 ## Features
 
 - Authorization & authentication
