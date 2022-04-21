@@ -41,6 +41,7 @@ const Form = () => {
         type="text"
         name="text"
         placeholder="Write a message"
+        autocomplete="off"
         value={formData.text}
         onChange={handleChange}
       />
