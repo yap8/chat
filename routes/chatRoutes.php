@@ -85,23 +85,18 @@ $app->get('/api/chats', function ($request, $response) {
     $ids = array_column($result->fetch_all(MYSQLI_ASSOC), 'chat_id');
 
     // get last messages
-    $sql = 'SELECT * FROM messages WHERE ';
+    $lastMessages = [];
 
     foreach ($ids as $key => $id) {
-      if ($key === array_key_last($ids)) {
-        $sql .= " chat_id = '$id' ORDER BY id DESC LIMIT 1;";
+      $sql = "SELECT * FROM messages WHERE chat_id = '$id' ORDER BY id DESC LIMIT 1;";
 
-        break;
-      }
+      // perform the query
+      $result = $conn->query($sql);
 
-      $sql .= " chat_id = '$id' OR";
+      // fetch last messages
+      array_push($lastMessages, $result->fetch_assoc());
     }
 
-    // perform the query
-    $result = $conn->query($sql);
-
-    // fetch last messages
-    $lastMessages = $result->fetch_all(MYSQLI_ASSOC);
 
     // get last messages content and created_at
     $lastMessagesContent = array_column($lastMessages, 'content');
