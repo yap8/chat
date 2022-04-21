@@ -94,7 +94,7 @@ $app->get('/api/chats', function ($request, $response) {
         break;
       }
 
-      $sql .= " chat_id = '$id'";
+      $sql .= " chat_id = '$id' OR";
     }
 
     // perform the query
@@ -128,8 +128,8 @@ $app->get('/api/chats', function ($request, $response) {
 
     // merge chats and last messages
     foreach ($chats as $index => $chat) {
-      $chats[$index]['lastMessageContent'] = $lastMessagesContent[$index];
-      $chats[$index]['lastMessageCreatedAt'] = $lastMessagesCreatedAt[$index];
+      $chats[$index]['lastMessageContent'] = isset($lastMessagesContent[$index]) ? $lastMessagesContent[$index] : null;
+      $chats[$index]['lastMessageCreatedAt'] = isset($lastMessagesCreatedAt[$index]) ? $lastMessagesCreatedAt[$index] : null;
     }
 
     // return the array of chats
