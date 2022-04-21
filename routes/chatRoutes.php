@@ -97,7 +97,6 @@ $app->get('/api/chats', function ($request, $response) {
       array_push($lastMessages, $result->fetch_assoc());
     }
 
-
     // get last messages content and created_at
     $lastMessagesContent = array_column($lastMessages, 'content');
     $lastMessagesCreatedAt = array_column($lastMessages, 'created_at');
