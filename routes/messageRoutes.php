@@ -72,3 +72,44 @@ $app->get('/api/messages/{chatId}', function ($request, $response, $params) {
     return $response->withJson($error->getMessage(), 500);
   }
 })->add($private);
+
+// @desc    Delete a message
+// @access  Private
+// @body    {}
+// @return  message
+$app->delete('/api/message/{messageId}', function ($request, $response, $params) {
+  try {
+    // db connection
+    $db = new DB;
+    $conn = $db->connect();
+
+    // get current user id
+    $userId = $request->getAttribute('user');
+
+    // destructuring to get params
+    ['messageId' => $messageId] = $params;
+
+    // find message by id
+    $sql = "SELECT * FROM messages WHERE id = '$messageId';";
+
+    // perform the query
+    $result = $conn->query($sql);
+
+    // fetch sender id
+    $senderId = $result->fetch_assoc()['sender_id'];
+
+    // check if user has rights to delete the message
+    if ($userId !== $senderId) throw new Exception('No rights to delete the message');
+
+    // send a message
+    $sql = "DELETE FROM messages WHERE id = '$messageId';";
+
+    // perform the query
+    $conn->query($sql);
+
+    // return result
+    return $response->withJson('Message deleted');
+  } catch (Exception $error) {
+    return $response->withJson($error->getMessage(), 500);
+  }
+})->add($private);
