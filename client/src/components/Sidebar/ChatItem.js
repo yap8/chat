@@ -23,7 +23,7 @@ const ChatItem = ({ id, title, lastMessageContent, lastMessageTime }) => {
         </div>
         <div className="w-full truncate mr-4">
           <h4 className="font-semibold">{title}</h4>
-          <p className="text-gray-400">{lastMessageContent}</p>
+          <p className="text-gray-400 truncate">{lastMessageContent}</p>
         </div>
         <div className="flex flex-col items-end">
           <div className="text-gray-400">{lastMessageTime}</div>
