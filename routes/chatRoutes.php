@@ -84,6 +84,29 @@ $app->get('/api/chats', function ($request, $response) {
     // get array of chat ids
     $ids = array_column($result->fetch_all(MYSQLI_ASSOC), 'chat_id');
 
+    // get last messages
+    $sql = 'SELECT * FROM messages WHERE ';
+
+    foreach ($ids as $key => $id) {
+      if ($key === array_key_last($ids)) {
+        $sql .= " chat_id = '$id' ORDER BY id LIMIT 1;";
+
+        break;
+      }
+
+      $sql .= " chat_id = '$id'";
+    }
+
+    // perform the query
+    $result = $conn->query($sql);
+
+    // fetch last messages
+    $lastMessages = $result->fetch_all(MYSQLI_ASSOC);
+
+    // get last messages content and created_at
+    $lastMessagesContent = array_column($lastMessages, 'content');
+    $lastMessagesCreatedAt = array_column($lastMessages, 'created_at');
+
     // find chats the user is participant of
     $sql = "SELECT * FROM chats WHERE";
 
@@ -100,8 +123,17 @@ $app->get('/api/chats', function ($request, $response) {
     // perform the query
     $result = $conn->query($sql);
 
+    // fetch chats
+    $chats = $result->fetch_all(MYSQLI_ASSOC);
+
+    // merge chats and last messages
+    foreach ($chats as $index => $chat) {
+      $chats[$index]['lastMessageContent'] = $lastMessagesContent[$index];
+      $chats[$index]['lastMessageCreatedAt'] = $lastMessagesCreatedAt[$index];
+    }
+
     // return the array of chats
-    return $response->withJson($result->fetch_all(MYSQLI_ASSOC));
+    return $response->withJson($chats);
   } catch (Exception $error) {
     return $response->withJson($error->getMessage(), 500);
   }
