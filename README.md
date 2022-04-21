@@ -15,11 +15,11 @@ Fullstack messenger application built with React & PHP
 
 ## Tech Stack
 
-**Client:** [React](https://reactjs.org/), [Redux](https://redux.js.org/), [Tailwind CSS](https://tailwindcss.com/), [npm](https://www.npmjs.com/)
+**Client:** [React](https://reactjs.org/), [Redux](https://redux.js.org/), [Tailwind CSS](https://tailwindcss.com/),
 
-**Server:** [PHP](https://www.php.net/), [MySQL](https://www.mysql.com/) (MySQLi), [Slim](https://www.slimframework.com/), [Composer](https://getcomposer.org/)
+**Server:** [PHP](https://www.php.net/), [MySQL](https://www.mysql.com/) (MySQLi), [Slim](https://www.slimframework.com/)
 
-**Other:** [JWT](https://jwt.io/), [Postman](https://www.postman.com/) (MySQLi)
+**Other:** [JWT](https://jwt.io/), [Postman](https://www.postman.com/), [npm](https://www.npmjs.com/), [Composer](https://getcomposer.org/)
 
 ## Features
 
