@@ -50,7 +50,7 @@ const Login = () => {
   }
 
   return (
-    <div className='p-4 bg-white shadow rounded'>
+    <div className='p-4 sm:w-1/2 md:w-1/3 bg-white shadow rounded'>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
           <FormTitle className="text-center">Login</FormTitle>
