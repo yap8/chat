@@ -46,7 +46,7 @@ const Form = () => {
         onChange={handleChange}
       />
       <button className="group px-4">
-        <MdSend className="text-2xl text-gray-400 transition group-hover:text-gray-800" />
+        <MdSend className="text-3xl text-blue-500 transition group-hover:text-blue-600" />
       </button>
     </form>
   )
