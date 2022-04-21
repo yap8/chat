@@ -14,7 +14,7 @@ function App() {
         <ToastContainer
           position="top-center"
         />
-        <div className="bg-slate-50 bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400 h-screen flex items-center justify-center">
+        <div className="bg-slate-50 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 h-screen flex items-center justify-center">
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/chats/:id' element={<Home />} />
