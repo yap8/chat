@@ -89,7 +89,7 @@ $app->get('/api/chats', function ($request, $response) {
 
     foreach ($ids as $key => $id) {
       if ($key === array_key_last($ids)) {
-        $sql .= " chat_id = '$id' ORDER BY id LIMIT 1;";
+        $sql .= " chat_id = '$id' ORDER BY id DESC LIMIT 1;";
 
         break;
       }
