@@ -7,11 +7,13 @@ import { fetchMe } from '../redux/actions/userActions'
 import Sidebar from "../components/Sidebar/Sidebar"
 import Spinner from "../components/Spinner"
 import Chat from "../components/Chat/Chat"
+import Modal from "../components/Modal"
 
 const Home = () => {
   usePrivateRoute()
 
   const chats = useSelector(state => state.chats)
+  const modal = useSelector(state => state.modal)
   const user = useSelector(state => state.user)
   const dispatch = useDispatch()
 
@@ -22,6 +24,7 @@ const Home = () => {
 
   return (
     <div className="flex w-full items-center justify-center">
+      {modal && <Modal />}
       {user && chats ? <>
         <Sidebar />
         <Chat />

@@ -7,6 +7,7 @@ import chatsReducer from "./chatsReducer";
 import chatReducer from "./chatReducer";
 import authReducer from "./authReducer";
 import userReducer from "./userReducer";
+import modalReducer from "./modalReducer";
 
 const combinedReducer = combineReducers({
   request: requestReducer,
@@ -14,7 +15,8 @@ const combinedReducer = combineReducers({
   user: userReducer,
   chats: chatsReducer,
   chat: chatReducer,
-  messages: messagesReducer
+  messages: messagesReducer,
+  modal: modalReducer
 })
 
 const rootReducer = (state, action) => {

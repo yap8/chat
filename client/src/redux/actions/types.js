@@ -19,3 +19,6 @@ export const CHAT_SET_CHAT = 'CHAT_SET_CHAT'
 
 // messages
 export const MESSAGES_FETCH_MESSAGES = 'MESSAGES_FETCH_MESSAGES'
+
+// modal
+export const MODAL_TOGGLE_MODAL = 'MODAL_TOGGLE_MODAL'
