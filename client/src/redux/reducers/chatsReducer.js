@@ -1,6 +1,6 @@
 import { CHATS_FETCH_CHATS } from "../actions/types"
 
-const initialState = []
+const initialState = null
 
 const chatsReducer = (state = initialState, action) => {
   switch (action.type) {
