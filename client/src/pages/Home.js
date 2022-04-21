@@ -12,15 +12,18 @@ import Modal from "../components/Modal"
 const Home = () => {
   usePrivateRoute()
 
+  const auth = useSelector(state => state.auth)
   const chats = useSelector(state => state.chats)
   const modal = useSelector(state => state.modal)
   const user = useSelector(state => state.user)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(fetchMe())
-    dispatch(fetchChats())
-  }, [dispatch])
+    if (auth) {
+      dispatch(fetchMe())
+      dispatch(fetchChats())
+    }
+  }, [auth, dispatch])
 
   return (
     <div className="flex w-full items-center justify-center">
