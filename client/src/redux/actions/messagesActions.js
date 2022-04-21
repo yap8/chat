@@ -33,3 +33,16 @@ export const sendMessage = (chatId, content) => async dispatch => {
     dispatch(requestReset())
   }
 }
+
+export const deleteMessage = (chatId, messageId) => async dispatch => {
+  try {
+    await api.delete(`/api/message/${messageId}`)
+
+    dispatch(fetchMessages(chatId))
+  } catch (error) {
+    dispatch(setError(true))
+    dispatch(setMessage(error.response.data))
+  } finally {
+    dispatch(requestReset())
+  }
+}
