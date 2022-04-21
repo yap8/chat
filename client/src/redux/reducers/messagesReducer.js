@@ -1,6 +1,6 @@
 import { MESSAGES_FETCH_MESSAGES } from "../actions/types"
 
-const initialState = []
+const initialState = null
 
 const messagesReducer = (state = initialState, action) => {
   switch (action.type) {
