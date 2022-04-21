@@ -16,7 +16,7 @@ const ChatItem = ({ id, title}) => {
     <li className="group">
       <Link
         className={mergeClasses(linkClasses)}
-        to={`/chats/${id}`}
+        to={chat && chat.id === id ? '/' : `/chats/${id}`}
       >
         <div className="w-12 h-12 mr-4">
           <FaUserCircle className="text-5xl text-gray-400" />
