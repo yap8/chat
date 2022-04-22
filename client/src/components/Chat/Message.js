@@ -21,7 +21,7 @@ const Message = ({ message }) => {
   }
 
   return (
-    <li className={`relative mb-2 first:mb-0 ${myMessage ? ' ml-auto' : ' mr-auto'}`}>
+    <div className={`relative mb-2 last:mb-0 ${myMessage ? ' ml-auto' : ' mr-auto'}`}>
       <Menu
         transition
         menuButton={(
@@ -43,7 +43,7 @@ const Message = ({ message }) => {
           >Delete</MenuItem>
         )}
       </Menu>
-    </li>
+    </div>
   )
 }
 
