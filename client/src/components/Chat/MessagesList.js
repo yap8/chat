@@ -1,11 +1,10 @@
 import { useDispatch, useSelector } from "react-redux"
+import PerfectScrollbar from 'react-perfect-scrollbar'
+import 'react-perfect-scrollbar/dist/css/styles.css'
 import { useEffect, useRef } from "react"
 
-import SimpleBarReact from "simplebar-react";
-import "simplebar/src/simplebar.css";
-
-import Message from './Message'
 import { fetchMessages } from "../../redux/actions/messagesActions"
+import Message from './Message'
 import Spinner from "../Spinner"
 
 const MessagesList = () => {
@@ -30,17 +29,10 @@ const MessagesList = () => {
   )
 
   return (
-    <div className="overflow-hidden">
-      <SimpleBarReact
-        className="h-full"
-        direction='rtl'
-      >
-        <div className="p-4 flex flex-col">
-          {messages.map(message => <Message key={message.id} message={message} />)}
-        </div>
-        <div ref={messagesEndRef} />
-      </SimpleBarReact>
-    </div>
+    <PerfectScrollbar className="h-full pt-4 pb-2 px-4 flex flex-col">
+      {messages.map((message, index) => <Message key={message.id} first={index === 0} message={message} />)}
+      <div ref={messagesEndRef} />
+    </PerfectScrollbar>
   )
 }
 
