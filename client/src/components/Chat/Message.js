@@ -7,7 +7,7 @@ import '@szhsin/react-menu/dist/index.css'
 import { deleteMessage } from '../../redux/actions/messagesActions'
 import { getTime } from '../../helpers/dateTime';
 
-const Message = ({ message }) => {
+const Message = ({ message, first }) => {
   const chatId = useSelector(state => state.chat.id)
   const user = useSelector(state => state.user)
   const dispatch = useDispatch()
@@ -21,7 +21,7 @@ const Message = ({ message }) => {
   }
 
   return (
-    <div className={`relative mb-2 last:mb-0 ${myMessage ? ' ml-auto' : ' mr-auto'}`}>
+    <div className={`relative mb-2 ${myMessage ? ' ml-auto' : ' mr-auto'} ${first && 'mt-auto'}`}>
       <Menu
         transition
         menuButton={(
