@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { BsThreeDotsVertical } from 'react-icons/bs'
+import { useNavigate } from 'react-router-dom'
 import { FaUserCircle } from 'react-icons/fa'
 import { BiRefresh } from 'react-icons/bi'
 
@@ -9,11 +10,15 @@ import { deleteChat } from '../../redux/actions/chatsActions'
 
 const Header = () => {
   const { title, id } = useSelector(state => state.chat)
+  const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const handleRefresh = () => dispatch(fetchMessages(id))
 
-  const handleDeleteChat = () => dispatch(deleteChat(id))
+  const handleDeleteChat = () => {
+    dispatch(deleteChat(id))
+    navigate('/')
+  }
 
   return (
     <div className="flex justify-between items-center bg-white p-4 shadow">
