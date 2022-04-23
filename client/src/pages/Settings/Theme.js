@@ -1,15 +1,19 @@
 import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import { setTheme } from '../../redux/actions/themeActions'
 import Button from '../../components/Button'
 
 const Theme = () => {
+  const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const handleThemeChange = (theme) => {
     dispatch(setTheme(theme))
   }
+
+
+  const handleGoBack = () => navigate(-1)
 
   return (
     <div className="p-4 sm:w-1/2 md:w-1/4 bg-white shadow rounded dark:bg-slate-800">
@@ -22,7 +26,10 @@ const Theme = () => {
         className="text-center mb-2"
         onClick={() => handleThemeChange('dark')}
       >Dark</Button>
-      <Link to="/settings" className="text-blue-500 hover:underline">Go back</Link>
+      <button
+        className="text-blue-500 hover:underline w-full"
+        onClick={handleGoBack}
+      >Go back</button>
     </div>
   )
 }

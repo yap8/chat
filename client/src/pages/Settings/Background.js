@@ -1,17 +1,20 @@
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import 'react-perfect-scrollbar/dist/css/styles.css'
+import { useNavigate } from "react-router-dom"
 import { useDispatch } from 'react-redux'
-import { Link } from "react-router-dom"
 
 import { setBackground } from '../../redux/actions/backgroundActions'
 import gradients from "../../assets/data/gradients"
 
 const Background = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const handleChangeTheme = (name) => {
     dispatch(setBackground(name))
   }
+
+  const handleGoBack = () => navigate(-1)
 
   return (
     <div className="h-4/6 w-1/2 p-2 bg-white shadow rounded dark:bg-slate-800 flex flex-col">
@@ -29,7 +32,10 @@ const Background = () => {
           </div>
         ))}
       </PerfectScrollbar>
-      <Link to="/settings" className="p-2 text-blue-500 hover:underline">Go back</Link>
+      <button
+        className="p-2 text-blue-500 hover:underline w-full"
+        onClick={handleGoBack}
+      >Go back</button>
     </div>
   )
 }
