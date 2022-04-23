@@ -3,6 +3,7 @@ import { combineReducers } from "redux"
 import backgroundReducer from "./backgroundReducer"
 import messagesReducer from "./messagesReducer"
 import { AUTH_LOGOUT } from "../actions/types"
+import spinnerReducer from "./spinnerReducer"
 import requestReducer from "./requestReducer"
 import searchReducer from "./searchReducer"
 import chatsReducer from "./chatsReducer"
@@ -22,7 +23,8 @@ const combinedReducer = combineReducers({
   messages: messagesReducer,
   search: searchReducer,
   theme: themeReducer,
-  background: backgroundReducer
+  background: backgroundReducer,
+  spinner: spinnerReducer
 })
 
 const rootReducer = (state, action) => {

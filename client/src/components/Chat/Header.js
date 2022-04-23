@@ -28,6 +28,7 @@ const Header = () => {
       <h1 className="w-full font-semibold text-2xl dark:text-white">{title}</h1>
       <Menu
         transition
+        menuClassName="bg-white dark:bg-slate-800"
         menuButton={(
           <MenuButton className="group p-2">
             <BsThreeDotsVertical className="w-6 h-6 text-gray-400 transition group-hover:text-gray-800 dark:text-white dark:group-hover:text-gray-400" />
@@ -35,7 +36,7 @@ const Header = () => {
         )}
       >
         <MenuItem
-          className="py-2 px-6"
+          className="py-2 px-6 dark:text-white dark:hover:bg-slate-700"
           onClick={handleDeleteChat}
         >
           Delete chat

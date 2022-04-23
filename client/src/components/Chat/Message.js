@@ -6,11 +6,17 @@ import '@szhsin/react-menu/dist/index.css'
 
 import { deleteMessage } from '../../redux/actions/messagesActions'
 import { getTime } from '../../helpers/dateTime';
+import mergeClasses from '../../helpers/mergeClasses';
 
 const Message = ({ message, first }) => {
   const chatId = useSelector(state => state.chat.id)
   const user = useSelector(state => state.user)
   const dispatch = useDispatch()
+
+  const classes = {
+    base: `py-2 px-4 rounded shadow flex transition hover:bg-gray-200 dark:hover:bg-slate-700`,
+    isBeingSent: message.isBeingSent ? 'bg-gray-200 dark:bg-slate-700' : 'bg-white dark:bg-slate-800'
+  }
 
   const time = getTime(message.created_at)
 
@@ -25,7 +31,7 @@ const Message = ({ message, first }) => {
       <Menu
         transition
         menuButton={(
-          <MenuButton className="py-2 px-4 rounded bg-white shadow flex transition hover:bg-gray-200 dark:bg-slate-800 dark:hover:bg-slate-700">
+          <MenuButton className={mergeClasses(classes)}>
             <p className="mr-4 dark:text-white">{message.content}</p>
             <p className="text-gray-500 relative top-1">{time}</p>
           </MenuButton>

@@ -9,7 +9,8 @@ Fullstack messenger application built with React & PHP
   - [Table of contents](#table-of-contents)
   - [Tech Stack](#tech-stack)
   - [Features](#features)
-  - [Run Locally](#run-locally)
+  - [Run Server Locally](#run-server-locally)
+  - [Run Client Locally](#run-client-locally)
   - [Authors](#authors)
   - [Documentation](#documentation)
 
@@ -27,7 +28,7 @@ Fullstack messenger application built with React & PHP
 - Messages between two users
 - Rooms with multiple users
 
-## Run Locally
+## Run Server Locally
 
 Clone the project
 
@@ -49,7 +50,6 @@ Install dependencies
 
 Add these lines to `httpd-vhosts.conf` in your apache config folder
 ```bash
-NameVirtualHost *:80
 
 <VirtualHost *:80>
     DocumentRoot "D:/xampp/htdocs/messenger/public"
@@ -58,6 +58,26 @@ NameVirtualHost *:80
 ```
 
 Start the server
+
+## Run Client Locally
+
+Go to the client directory
+
+```bash
+  cd client
+```
+
+Install dependencies
+
+```bash
+  npm i
+```
+
+Start the server
+
+```bash
+  npm start
+```
 
 ## Authors
 

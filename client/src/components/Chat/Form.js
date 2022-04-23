@@ -6,6 +6,7 @@ import { useState } from 'react'
 
 const Form = () => {
   const chatId = useSelector(state => state.chat.id)
+  const userId = useSelector(state => state.user.id)
   const dispatch = useDispatch()
   const [formData, setFormData] = useState({
     text: ''
@@ -16,7 +17,7 @@ const Form = () => {
 
     if (!formData.text.trim()) return
 
-    dispatch(sendMessage(chatId, formData.text))
+    dispatch(sendMessage(formData.text, chatId, userId))
 
     setFormData({
       text: ''
