@@ -1,8 +1,17 @@
+import { v4 as uuid } from 'uuid'
+
+import { MESSAGES_FETCH_MESSAGES, MESSAGES_ADD_MESSAGE } from "./types"
+import { requestReset, setError, setMessage } from "./requestActions"
+import { getDateTime } from "../../helpers/dateTime"
+import { fetchChats } from "./chatsActions"
 import api from "../../api"
 
-import { requestReset, setError, setMessage } from "./requestActions"
-import { MESSAGES_FETCH_MESSAGES } from "./types"
-import { fetchChats } from "./chatsActions"
+export const addMessage = (message) => {
+  return {
+    type: MESSAGES_ADD_MESSAGE,
+    payload: message
+  }
+}
 
 export const fetchMessages = (chatId) => async dispatch => {
   try {
@@ -20,8 +29,10 @@ export const fetchMessages = (chatId) => async dispatch => {
   }
 }
 
-export const sendMessage = (chatId, content) => async dispatch => {
+export const sendMessage = (content, chatId, userId) => async dispatch => {
   try {
+    dispatch(addMessage({ id: uuid(), chat_id: chatId, sender_id: userId, content, created_at: getDateTime(), isBeingSent: true }))
+
     await api.post(`/api/message`, {
       chatId,
       content

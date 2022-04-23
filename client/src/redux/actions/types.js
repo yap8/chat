@@ -19,6 +19,7 @@ export const CHAT_SET_CHAT = 'CHAT_SET_CHAT'
 
 // messages
 export const MESSAGES_FETCH_MESSAGES = 'MESSAGES_FETCH_MESSAGES'
+export const MESSAGES_ADD_MESSAGE = 'MESSAGES_ADD_MESSAGE'
 
 // users
 export const USERS_SET_USERS = 'USERS_SET_USERS'
