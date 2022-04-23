@@ -3,12 +3,13 @@ import { combineReducers } from "redux"
 import messagesReducer from "./messagesReducer"
 import { AUTH_LOGOUT } from "../actions/types"
 import requestReducer from "./requestReducer"
+import searchReducer from "./searchReducer"
 import chatsReducer from "./chatsReducer"
+import usersReducer from "./usersReducer"
+import themeReducer from "./themeReducer"
 import chatReducer from "./chatReducer"
 import authReducer from "./authReducer"
 import userReducer from "./userReducer"
-import usersReducer from "./usersReducer"
-import searchReducer from "./searchReducer"
 
 const combinedReducer = combineReducers({
   request: requestReducer,
@@ -18,7 +19,8 @@ const combinedReducer = combineReducers({
   chats: chatsReducer,
   chat: chatReducer,
   messages: messagesReducer,
-  search: searchReducer
+  search: searchReducer,
+  theme: themeReducer
 })
 
 const rootReducer = (state, action) => {
