@@ -4,7 +4,7 @@ import mergeClasses from '../helpers/mergeClasses'
 
 const Spinner = ({ className }) => {
   const classes = {
-    base: 'animate-spin text-white dark:text-slate-700',
+    base: 'animate-spin text-blue-500 dark:text-white',
     inherited: className
   }
 
