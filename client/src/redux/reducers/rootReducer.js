@@ -1,5 +1,6 @@
 import { combineReducers } from "redux"
 
+import backgroundReducer from "./backgroundReducer"
 import messagesReducer from "./messagesReducer"
 import { AUTH_LOGOUT } from "../actions/types"
 import requestReducer from "./requestReducer"
@@ -20,7 +21,8 @@ const combinedReducer = combineReducers({
   chat: chatReducer,
   messages: messagesReducer,
   search: searchReducer,
-  theme: themeReducer
+  theme: themeReducer,
+  background: backgroundReducer
 })
 
 const rootReducer = (state, action) => {
