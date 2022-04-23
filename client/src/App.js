@@ -11,6 +11,7 @@ import Home from './pages/Home'
 
 function App() {
   const { error, message } = useSelector(state => state.request)
+  const theme = useSelector(state => state.theme)
 
   useEffect(() => {
     if (error && message) toast.error(message)
@@ -18,11 +19,11 @@ function App() {
 
   return (
     <Router>
-      <div>
+      <div className={theme || ''}>
         <ToastContainer
           position="top-center"
         />
-        <div className="bg-slate-50 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 h-screen flex items-center justify-center">
+        <div className="bg-slate-50 dark:bg-gray-800 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 h-screen flex items-center justify-center">
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/chats/:id' element={<Home />} />
