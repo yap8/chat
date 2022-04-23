@@ -28,9 +28,19 @@ $app->post('/api/chats', function ($request, $response) {
     // destructuring to get all fields into separate variables
     ['participantId' => $participantId] = $data;
 
+    // get anme of participant
+    $sql = "SELECT name FROM users WHERE
+            id = '$participantId';";
+
+    // perform the query
+    $result = $conn->query($sql);
+
+    // get the name
+    $participantName = $result->fetch_assoc()['name'];
+
     // get name of current user
     $sql = "SELECT name FROM users WHERE
-            id = '$userId'";
+            id = '$userId';";
 
     // perform the query
     $result = $conn->query($sql);
@@ -40,7 +50,7 @@ $app->post('/api/chats', function ($request, $response) {
 
     // create a chat
     $sql = "INSERT INTO chats(title, creator_id)
-            VALUES ('$userName\'s chat', '$userId')";
+            VALUES ('$userName & $participantName', '$userId')";
 
     // perform the query
     $conn->query($sql);
