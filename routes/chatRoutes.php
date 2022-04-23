@@ -94,8 +94,11 @@ $app->get('/api/chats', function ($request, $response) {
         // perform the query
         $result = $conn->query($sql);
   
-        // fetch last messages
-        array_push($lastMessages, $result->fetch_assoc());
+        // fetch result
+        $result = $result->fetch_assoc();
+
+        // push result to lastMessages
+        array_push($lastMessages, $result ? $result : ['content' => null, 'created_at' => null]);
       }
     }
 
@@ -110,7 +113,7 @@ $app->get('/api/chats', function ($request, $response) {
       foreach ($ids as $key => $id) {
         if ($key === array_key_last($ids)) {
           $sql .= " id = '$id';";
-  
+
           break;
         }
   
@@ -170,6 +173,12 @@ $app->delete('/api/chats/{chatId}', function ($request, $response, $params) {
 
     // delete participants
     $sql = "DELETE FROM participants WHERE chat_id = '$chatId';";
+
+    // perform the query
+    $conn->query($sql);
+
+    // delete messages
+    $sql = "DELETE FROM messages WHERE chat_id = '$chatId';";
 
     // perform the query
     $conn->query($sql);
