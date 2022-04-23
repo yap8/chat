@@ -17,20 +17,20 @@ const Header = () => {
   }
 
   return (
-    <div className="flex justify-between items-center border-b bg-white p-4">
+    <div className="flex justify-between items-center border-b dark:border-slate-900 p-4">
       <div className="w-12 h-12 mr-4">
         {avatar ? (
           <img src={avatar} alt="profile pic" />
         ) : (
-          <FaUserCircle className="text-5xl text-gray-400" />
+          <FaUserCircle className="text-5xl text-gray-400 dark:text-white" />
         )}
       </div>
-      <h1 className="w-full font-semibold text-2xl">{name}</h1>
+      <h1 className="w-full font-semibold text-2xl dark:text-white">{name}</h1>
       <Menu
         transition
         menuButton={(
           <MenuButton className="group">
-            <BsThreeDotsVertical className="w-6 h-6 text-gray-400 transition group-hover:text-gray-800" />
+            <BsThreeDotsVertical className="w-6 h-6 text-gray-400 transition group-hover:text-gray-800 dark:text-white dark:group-hover:text-gray-400" />
           </MenuButton>
         )}
       >

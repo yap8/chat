@@ -11,7 +11,7 @@ const UserItem = ({ id, name }) => {
   const dispatch = useDispatch()
 
   const buttonClasses = {
-    base: 'w-full p-4 flex items-center transition group-hover:bg-gray-200',
+    base: 'w-full p-4 flex items-center transition group-hover:bg-gray-200 dark:group-hover:bg-slate-700',
     active: chat && chat.id === id ? 'bg-gray-200' : ''
   }
 
@@ -28,10 +28,10 @@ const UserItem = ({ id, name }) => {
         onClick={handleClick}
       >
         <div className="w-12 h-12 mr-4">
-          <FaUserCircle className="text-5xl text-gray-400" />
+          <FaUserCircle className="text-5xl text-gray-400 dark:text-white" />
         </div>
         <div className="truncate">
-          <h4 className="text-xl font-semibold truncate">{name}</h4>
+          <h4 className="text-xl font-semibold truncate dark:text-white">{name}</h4>
         </div>
       </button>
     </li>

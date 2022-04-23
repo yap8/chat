@@ -24,7 +24,7 @@ const ChatList = () => {
         ))}
       </ul>
       {users && <>
-        <h1 className="p-4 text-xl font-semibold">Results:</h1>
+        <h1 className="p-4 text-xl font-semibold dark:text-white">Results:</h1>
         <ul>
           {users.map(user => (
             <UserItem

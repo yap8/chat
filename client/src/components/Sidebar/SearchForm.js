@@ -19,13 +19,13 @@ const SearchForm = () => {
   }
 
   return (
-    <div className="p-4 flex items-center border-b relative">
+    <div className="p-4 flex items-center border-b relative dark:border-slate-900">
       <label className="absolute left-7 cursor-text" htmlFor="search">
         <FaSearch className="text-gray-500 text-lg" />
       </label>
       <input
         id="search"
-        className="w-full py-2 px-10 rounded bg-gray-200 text-xl text-gray-800"
+        className="w-full py-2 px-10 rounded bg-gray-200 text-xl text-gray-800 dark:bg-slate-700 dark:text-white"
         type="text"
         placeholder="Search"
         autoComplete="off"
