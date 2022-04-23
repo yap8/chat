@@ -21,7 +21,7 @@ const Chat = () => {
   }, [dispatch, id, chats])
 
   return (
-    <div className="h-screen w-3/4 flex flex-col justify-between">
+    <div className="h-screen w-full lg:w-3/4 flex flex-col justify-between">
       {chat && <>
         <Header />
         <MessagesList />
