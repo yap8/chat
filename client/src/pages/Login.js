@@ -12,7 +12,7 @@ const Login = () => {
   const navigate = useNavigate()
 
   const auth = useSelector(state => state.auth)
-  const { success, error, message } = useSelector(state => state.request)
+  const success = useSelector(state => state.request.success)
 
   const [formData, setFormData] = useState({
     email: '',
@@ -24,10 +24,8 @@ const Login = () => {
   }, [auth, navigate])
 
   useEffect(() => {
-    if (error && message) toast.error(message)
-
     if (success) navigate('/')
-  }, [success, error, message, navigate])
+  }, [success, navigate])
 
   const handleSubmit = (e) => {
     e.preventDefault()

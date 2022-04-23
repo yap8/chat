@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { ToastContainer } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 import Login from "./pages/Login"
 import Register from './pages/Register';
@@ -8,6 +10,12 @@ import Home from './pages/Home';
 import Settings from './pages/Settings';
 
 function App() {
+  const { error, message } = useSelector(state => state.request)
+
+  useEffect(() => {
+    if (error && message) toast.error(message)
+  }, [error, message])
+
   return (
     <Router>
       <div>

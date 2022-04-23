@@ -24,5 +24,5 @@ export const setMessage = (message) => {
 export const requestReset = () => dispatch => {
   setTimeout(() => {
     dispatch({ type: REQUEST_RESET_REQUEST })
-  }, 100)
+  }, 0)
 }
