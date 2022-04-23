@@ -26,3 +26,6 @@ export const USERS_FIND_USERS = 'USERS_FIND_USERS'
 
 // modal
 export const MODAL_TOGGLE_MODAL = 'MODAL_TOGGLE_MODAL'
+
+// search
+export const SEARCH_SET_SEARCH_VALUE = 'SEARCH_SET_SEARCH_VALUE'

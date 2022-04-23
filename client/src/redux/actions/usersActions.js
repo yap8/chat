@@ -11,6 +11,8 @@ export const setUsers = (users) => {
 
 export const findUsers = (query) => async dispatch => {
   try {
+    if (!query) return dispatch(setUsers(null))
+
     const { data } = await api.get(`/api/users/find?query=${query}`)
 
     dispatch(setUsers(data))

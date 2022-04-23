@@ -9,6 +9,7 @@ import authReducer from "./authReducer";
 import userReducer from "./userReducer";
 import modalReducer from "./modalReducer";
 import usersReducer from "./usersReducer";
+import searchReducer from "./searchReducer";
 
 const combinedReducer = combineReducers({
   request: requestReducer,
@@ -18,7 +19,8 @@ const combinedReducer = combineReducers({
   chats: chatsReducer,
   chat: chatReducer,
   messages: messagesReducer,
-  modal: modalReducer
+  modal: modalReducer,
+  search: searchReducer
 })
 
 const rootReducer = (state, action) => {

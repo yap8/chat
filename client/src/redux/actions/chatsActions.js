@@ -17,3 +17,16 @@ export const fetchChats = () => async dispatch => {
     dispatch(requestReset())
   }
 }
+
+export const createChat = (participantId) => async dispatch => {
+  try {
+    await api.post('/api/chats', { participantId })
+
+    dispatch(fetchChats())
+  } catch (error) {
+    dispatch(setError(true))
+    dispatch(setMessage(error.response.data))
+  } finally {
+    dispatch(requestReset())
+  }
+}
