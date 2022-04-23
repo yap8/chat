@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 
-import Settings, { Background, Theme } from './pages/Settings'
+import Settings, { Background, Spinner, Theme } from './pages/Settings'
 import getGradient from './helpers/getGradient'
 import Register from './pages/Register'
 import Login from "./pages/Login"
@@ -34,6 +34,7 @@ function App() {
             <Route path='/settings' element={<Settings />} />
             <Route path='/settings/background' element={<Background />} />
             <Route path='/settings/theme' element={<Theme />} />
+            <Route path='/settings/spinner' element={<Spinner />} />
           </Routes>
         </div>
       </div>

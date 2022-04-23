@@ -36,3 +36,6 @@ export const THEME_SET_THEME = 'THEME_SET_THEME'
 
 // background
 export const BACKGROUND_SET_BACKGROUND = 'BACKGROUND_SET_BACKGROUND'
+
+// spinner
+export const SPINNER_SET_COLOR = 'SPINNER_SET_COLOR'
