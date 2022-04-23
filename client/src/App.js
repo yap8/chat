@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
 
+import Settings, { Background, Theme } from './pages/Settings'
+import Register from './pages/Register'
 import Login from "./pages/Login"
-import Register from './pages/Register';
-import Home from './pages/Home';
-import Settings from './pages/Settings';
+import Home from './pages/Home'
 
 function App() {
   const { error, message } = useSelector(state => state.request)
@@ -29,11 +29,13 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
             <Route path='/settings' element={<Settings />} />
+            <Route path='/settings/background' element={<Background />} />
+            <Route path='/settings/theme' element={<Theme />} />
           </Routes>
         </div>
       </div>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App
