@@ -136,3 +136,47 @@ $app->get('/api/chats', function ($request, $response) {
     return $response->withJson($error->getMessage(), 500);
   }
 })->add($private);
+
+// @desc    Delete a chat
+// @access  Private
+// @body    { chatId }
+// @return  message
+$app->delete('/api/chats/{chatId}', function ($request, $response, $params) {
+  try {
+    // db connection
+    $db = new DB;
+    $conn = $db->connect();
+
+    // get current user id
+    $userId = $request->getAttribute('user');
+
+    // destructuring to get params
+    ['chatId' => $chatId] = $params;
+
+    // check if user is part of chat
+    $sql = "SELECT * FROM participants WHERE user_id = '$userId' AND chat_id = '$chatId';";
+
+    // perform the query
+    $result = $conn->query($sql);
+
+    // throw error if no results
+    if (!$result->num_rows) throw new Exception('You are not part of the chat');
+
+    // delete chat
+    $sql = "DELETE FROM chats WHERE id = '$chatId';";
+
+    // perform the query
+    $conn->query($sql);
+
+    // delete participants
+    $sql = "DELETE FROM participants WHERE chat_id = '$chatId';";
+
+    // perform the query
+    $conn->query($sql);
+
+    // return result
+    return $response->withJson("Chat successfully deleted");
+  } catch (Exception $error) {
+    return $response->withJson($error->getMessage(), 500);
+  }
+})->add($private);
