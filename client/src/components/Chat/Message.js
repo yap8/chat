@@ -25,8 +25,8 @@ const Message = ({ message, first }) => {
       <Menu
         transition
         menuButton={(
-          <MenuButton className="py-2 px-4 rounded bg-white shadow flex transition hover:bg-gray-200">
-            <p className="mr-4">{message.content}</p>
+          <MenuButton className="py-2 px-4 rounded bg-white shadow flex transition hover:bg-gray-200 dark:bg-slate-800 dark:hover:bg-slate-700">
+            <p className="mr-4 dark:text-white">{message.content}</p>
             <p className="text-gray-500 relative top-1">{time}</p>
           </MenuButton>
         )}
