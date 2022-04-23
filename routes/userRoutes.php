@@ -127,8 +127,11 @@ $app->get('/api/users/find', function ($request, $response) {
     // get query param
     [ 'query' => $query ] = $request->getQueryParams();
 
+    // get current user id
+    $userId = $request->getAttribute('user');
+
     // find users that match given query
-    $sql = "SELECT * FROM users WHERE email LIKE '$query%' OR name LIKE '$query%';";
+    $sql = "SELECT * FROM users WHERE id != '$userId' AND (email LIKE '$query%' OR name LIKE '$query%');";
 
     // perform the query
     $result = $conn->query($sql);

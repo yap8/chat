@@ -28,9 +28,19 @@ $app->post('/api/chats', function ($request, $response) {
     // destructuring to get all fields into separate variables
     ['participantId' => $participantId] = $data;
 
+    // get anme of participant
+    $sql = "SELECT name FROM users WHERE
+            id = '$participantId';";
+
+    // perform the query
+    $result = $conn->query($sql);
+
+    // get the name
+    $participantName = $result->fetch_assoc()['name'];
+
     // get name of current user
     $sql = "SELECT name FROM users WHERE
-            id = '$userId'";
+            id = '$userId';";
 
     // perform the query
     $result = $conn->query($sql);
@@ -40,7 +50,7 @@ $app->post('/api/chats', function ($request, $response) {
 
     // create a chat
     $sql = "INSERT INTO chats(title, creator_id)
-            VALUES ('$userName\'s chat', '$userId')";
+            VALUES ('$userName & $participantName', '$userId')";
 
     // perform the query
     $conn->query($sql);
@@ -94,8 +104,11 @@ $app->get('/api/chats', function ($request, $response) {
         // perform the query
         $result = $conn->query($sql);
   
-        // fetch last messages
-        array_push($lastMessages, $result->fetch_assoc());
+        // fetch result
+        $result = $result->fetch_assoc();
+
+        // push result to lastMessages
+        array_push($lastMessages, $result ? $result : ['content' => null, 'created_at' => null]);
       }
     }
 
@@ -110,7 +123,7 @@ $app->get('/api/chats', function ($request, $response) {
       foreach ($ids as $key => $id) {
         if ($key === array_key_last($ids)) {
           $sql .= " id = '$id';";
-  
+
           break;
         }
   
@@ -170,6 +183,12 @@ $app->delete('/api/chats/{chatId}', function ($request, $response, $params) {
 
     // delete participants
     $sql = "DELETE FROM participants WHERE chat_id = '$chatId';";
+
+    // perform the query
+    $conn->query($sql);
+
+    // delete messages
+    $sql = "DELETE FROM messages WHERE chat_id = '$chatId';";
 
     // perform the query
     $conn->query($sql);

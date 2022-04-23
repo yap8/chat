@@ -1,6 +1,8 @@
+import api from "../../api"
+
 import { requestReset, setError, setMessage } from "./requestActions"
 import { MESSAGES_FETCH_MESSAGES } from "./types"
-import api from "../../api"
+import { fetchChats } from "./chatsActions"
 
 export const fetchMessages = (chatId) => async dispatch => {
   try {
@@ -26,6 +28,7 @@ export const sendMessage = (chatId, content) => async dispatch => {
     })
 
     dispatch(fetchMessages(chatId))
+    dispatch(fetchChats())
   } catch (error) {
     dispatch(setError(true))
     dispatch(setMessage(error.response.data))

@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react'
 import { FaSearch, FaTimes } from 'react-icons/fa'
 import { useDispatch, useSelector } from 'react-redux'
 import { setSearchValue } from '../../redux/actions/searchActions'
-import { setUsers, findUsers } from '../../redux/actions/usersActions'
+import { findUsers } from '../../redux/actions/usersActions'
 
 const SearchForm = () => {
   const search = useSelector(state => state.search)
