@@ -12,6 +12,7 @@ export const AUTH_LOGOUT = 'AUTH_LOGOUT'
 export const USER_FETCH_ME = 'USER_FETCH_ME'
 
 // chats
+export const CHATS_DELETE_CHATS = 'CHATS_DELETE_CHATS'
 export const CHATS_FETCH_CHATS = 'CHATS_FETCH_CHATS'
 
 // chat

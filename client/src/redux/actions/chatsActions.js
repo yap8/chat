@@ -1,5 +1,5 @@
 import { requestReset, setError, setMessage } from "./requestActions"
-import { CHATS_FETCH_CHATS } from "./types"
+import { CHATS_FETCH_CHATS, CHATS_DELETE_CHATS } from "./types"
 import api from "../../api"
 
 export const fetchChats = () => async dispatch => {
@@ -33,6 +33,11 @@ export const createChat = (participantId) => async dispatch => {
 
 export const deleteChat = (chatId) => async dispatch => {
   try {
+    dispatch({
+      type: CHATS_DELETE_CHATS,
+      payload: chatId
+    })
+
     await api.delete(`/api/chats/${chatId}`)
 
     dispatch(fetchChats())
