@@ -12,7 +12,6 @@ const Theme = () => {
     dispatch(setTheme(theme))
   }
 
-
   const handleGoBack = () => navigate(-1)
 
   return (

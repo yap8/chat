@@ -1,6 +1,6 @@
 import { BACKGROUND_SET_BACKGROUND } from "../actions/types"
 
-const initialState = localStorage.getItem('background') || 'Hyper'
+const initialState = localStorage.getItem('background') || 'Messenger'
 
 const backgroundReducer = (state = initialState, action) => {
   switch (action.type) {
