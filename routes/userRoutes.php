@@ -113,3 +113,32 @@ $app->get('/api/users/me', function ($request, $response) {
     return $response->withJson($error->getMessage(), 500);
   }
 })->add($private);
+
+// @desc    Find users by given query
+// @access  Private
+// @body    {}
+// @return  { id, name, username, email }
+$app->get('/api/users/find', function ($request, $response) {
+  try {
+    // db connection
+    $db = new DB;
+    $conn = $db->connect();
+
+    // get query param
+    [ 'query' => $query ] = $request->getQueryParams();
+
+    // find users that match given query
+    $sql = "SELECT * FROM users WHERE email LIKE '$query%' OR name LIKE '$query%';";
+
+    // perform the query
+    $result = $conn->query($sql);
+
+    // fetch the result
+    $result = $result->fetch_all(MYSQLI_ASSOC);
+
+    // return the token
+    return $response->withJson($result);
+  } catch (Exception $error) {
+    return $response->withJson($error->getMessage(), 500);
+  }
+})->add($private);
