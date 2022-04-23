@@ -11,8 +11,8 @@ const Register = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
+  const success = useSelector(state => state.request.success)
   const auth = useSelector(state => state.auth)
-  const { success, error, message } = useSelector(state => state.request)
 
   const [formData, setFormData] = useState({
     name: '',
@@ -26,14 +26,12 @@ const Register = () => {
   }, [auth, navigate])
 
   useEffect(() => {
-    if (error && message) toast.error(message)
+    if (success) {
+      toast.success('Successfully registered')
 
-    if (success && message) {
-      toast.success(message)
-
-      setTimeout(() => navigate('/login'), 100)
+      navigate('/login')
     }
-  }, [success, error, message, navigate])
+  }, [success, navigate])
 
   const handleSubmit = (e) => {
     e.preventDefault()

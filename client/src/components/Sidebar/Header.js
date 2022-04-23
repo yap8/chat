@@ -7,7 +7,6 @@ import '@szhsin/react-menu/dist/transitions/slide.css'
 
 import { logout } from '../../redux/actions/authActions'
 import { Link } from 'react-router-dom'
-import { toggleModal } from '../../redux/actions/modalActions'
 
 const Header = () => {
   const { name, avatar } = useSelector(state => state.user)
@@ -17,10 +16,6 @@ const Header = () => {
     dispatch(logout())
   }
 
-  const handleCreateChat = () => {
-    dispatch(toggleModal())
-  }
-  
   return (
     <div className="flex justify-between items-center border-b bg-white p-4">
       <div className="w-12 h-12 mr-4">
@@ -39,12 +34,6 @@ const Header = () => {
           </MenuButton>
         )}
       >
-        <MenuItem
-          className="py-2 px-6"
-          onClick={handleCreateChat}
-        >
-          Create chat
-        </MenuItem>
         <MenuItem className="p-0">
           <Link
             className="py-2 px-6 block w-full h-full"
