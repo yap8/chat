@@ -28,20 +28,21 @@ const Header = () => {
       <h1 className="w-full font-semibold text-2xl dark:text-white">{name}</h1>
       <Menu
         transition
+        menuClassName="bg-white dark:bg-slate-800"
         menuButton={(
           <MenuButton className="group">
             <BsThreeDotsVertical className="w-6 h-6 text-gray-400 transition group-hover:text-gray-800 dark:text-white dark:group-hover:text-gray-400" />
           </MenuButton>
         )}
       >
-        <MenuItem className="p-0">
+        <MenuItem className="p-0 dark:text-white dark:hover:bg-slate-700">
           <Link
             className="py-2 px-6 block w-full h-full"
             to="/settings"
           >Settings</Link>
         </MenuItem>
         <MenuItem
-          className="py-2 px-6"
+          className="py-2 px-6 dark:text-white dar:bg-slate-800 dark:hover:bg-slate-700"
           onClick={handleLogout}
         >Logout</MenuItem>
       </Menu>
