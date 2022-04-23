@@ -18,7 +18,9 @@ const Background = () => {
 
   return (
     <div className="h-4/6 w-1/2 p-2 bg-white shadow rounded dark:bg-slate-800 flex flex-col">
-      <h1 className="text-xl text-center mb-2 p-2 dark:text-white">Backgrounds</h1>
+      <h1 className="text-xl text-center mb-2 p-2 dark:text-white">
+        Backgrounds by <a className="text-blue-500 hover:underline" target="_blank" rel="noreferrer" href="https://github.com/jordihales/hypercolor">hypercolor</a> ❤️
+      </h1>
       <PerfectScrollbar className="flex flex-wrap px-2">
         {gradients.map(gradient => (
           <div key={gradient.name} className="w-1/3 p-2">
