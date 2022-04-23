@@ -26,3 +26,9 @@ export const USERS_FIND_USERS = 'USERS_FIND_USERS'
 
 // search
 export const SEARCH_SET_SEARCH_VALUE = 'SEARCH_SET_SEARCH_VALUE'
+
+// theme
+export const THEME_SET_THEME = 'THEME_SET_THEME'
+
+// background
+export const BACKGROUND_SET_BACKGROUND = 'BACKGROUND_SET_BACKGROUND'

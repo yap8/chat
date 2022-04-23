@@ -32,14 +32,14 @@ const Form = () => {
 
   return (
     <form
-      className="bg-white flex shadow"
+      className="bg-white flex border-t dark:border-slate-900 shadow"
       onSubmit={handleSubmit}
     >
       {/* <button className="group px-4">
         <ImAttachment className="text-2xl text-gray-400 transition group-hover:text-gray-800" />
       </button> */}
       <input
-        className="p-4 w-full text-xl outline-0"
+        className="p-4 w-full text-xl outline-0 dark:bg-slate-800 dark:text-white"
         type="text"
         name="text"
         placeholder="Write a message"
@@ -47,7 +47,7 @@ const Form = () => {
         value={formData.text}
         onChange={handleChange}
       />
-      <button className="group px-4">
+      <button className="group px-4 dark:bg-slate-800">
         <MdSend className="text-3xl text-blue-500 transition group-hover:text-blue-600" />
       </button>
     </form>

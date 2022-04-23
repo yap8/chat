@@ -42,6 +42,7 @@ export const deleteMessage = (chatId, messageId) => async dispatch => {
     await api.delete(`/api/message/${messageId}`)
 
     dispatch(fetchMessages(chatId))
+    dispatch(fetchChats())
   } catch (error) {
     dispatch(setError(true))
     dispatch(setMessage(error.response.data))
