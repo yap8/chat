@@ -8,11 +8,13 @@ import chatReducer from "./chatReducer";
 import authReducer from "./authReducer";
 import userReducer from "./userReducer";
 import modalReducer from "./modalReducer";
+import usersReducer from "./usersReducer";
 
 const combinedReducer = combineReducers({
   request: requestReducer,
   auth: authReducer,
   user: userReducer,
+  users: usersReducer,
   chats: chatsReducer,
   chat: chatReducer,
   messages: messagesReducer,

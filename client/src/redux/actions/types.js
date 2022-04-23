@@ -20,5 +20,9 @@ export const CHAT_SET_CHAT = 'CHAT_SET_CHAT'
 // messages
 export const MESSAGES_FETCH_MESSAGES = 'MESSAGES_FETCH_MESSAGES'
 
+// users
+export const USERS_SET_USERS = 'USERS_SET_USERS'
+export const USERS_FIND_USERS = 'USERS_FIND_USERS'
+
 // modal
 export const MODAL_TOGGLE_MODAL = 'MODAL_TOGGLE_MODAL'

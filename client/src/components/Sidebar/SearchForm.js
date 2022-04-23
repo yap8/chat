@@ -1,14 +1,24 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FaSearch, FaTimes } from 'react-icons/fa'
+import { useDispatch } from 'react-redux'
+import { setUsers, findUsers } from '../../redux/actions/usersActions'
 
 const SearchForm = () => {
   const [formData, setFormData] = useState('')
+  const dispatch = useDispatch()
 
   const handleChange = e => {
     setFormData(e.target.value)
+
+    if (e.target.value === '') return dispatch(setUsers(null))
+
+    dispatch(findUsers(e.target.value))
   }
 
-  const clearForm = () => setFormData('')
+  const clearForm = () => {
+    dispatch(setUsers(null))
+    setFormData('')
+  }
 
   return (
     <div className="p-4 flex items-center border-b relative">
