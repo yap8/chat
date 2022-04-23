@@ -1,6 +1,8 @@
+import PerfectScrollbar from 'react-perfect-scrollbar'
+import 'react-perfect-scrollbar/dist/css/styles.css'
 import { useSelector } from "react-redux"
-import { getTime } from "../../helpers/dateTime"
 
+import { getTime } from "../../helpers/dateTime"
 import ChatItem from "./ChatItem"
 import UserItem from "./UserItem"
 
@@ -9,7 +11,7 @@ const ChatList = () => {
   const chats = useSelector(state => state.chats)
 
   return (
-    <div className="h-full overflow-auto">
+    <PerfectScrollbar>
       <ul>
         {chats.map(chat => (
           <ChatItem
@@ -23,17 +25,17 @@ const ChatList = () => {
       </ul>
       {users && <>
         <h1 className="p-4 text-xl font-semibold">Results:</h1>
-        {users.map(user => (
-          <ul>
+        <ul>
+          {users.map(user => (
             <UserItem
               key={user.id}
               id={user.id}
               name={user.name}
             />
-          </ul>
-        ))}
+          ))}
+        </ul>
       </>}
-    </div>
+    </PerfectScrollbar>
   )
 }
 

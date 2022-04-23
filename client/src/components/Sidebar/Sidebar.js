@@ -4,7 +4,7 @@ import ChatList from "./ChatList"
 
 const Sidebar = () => {
   return (
-    <div className="w-1/4 h-screen bg-white overflow-hidden border-r shadow">
+    <div className="h-screen w-1/4 flex flex-col justify-between bg-white border-r shadow">
       <Header />
       <SearchForm />
       <ChatList />
