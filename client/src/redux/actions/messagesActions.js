@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid'
 
-import { MESSAGES_FETCH_MESSAGES, MESSAGES_ADD_MESSAGE } from "./types"
+import { MESSAGES_FETCH_MESSAGES, MESSAGES_ADD_MESSAGE, MESSAGES_DELETE_MESSAGE } from "./types"
 import { requestReset, setError, setMessage } from "./requestActions"
 import { getDateTime } from "../../helpers/dateTime"
 import { fetchChats } from "./chatsActions"
@@ -50,6 +50,11 @@ export const sendMessage = (content, chatId, userId) => async dispatch => {
 
 export const deleteMessage = (chatId, messageId) => async dispatch => {
   try {
+    dispatch({
+      type: MESSAGES_DELETE_MESSAGE,
+      payload: messageId
+    })
+
     await api.delete(`/api/message/${messageId}`)
 
     dispatch(fetchMessages(chatId))
