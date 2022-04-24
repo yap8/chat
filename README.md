@@ -9,6 +9,7 @@ Fullstack messenger application built with React & PHP
   - [Table of contents](#table-of-contents)
   - [Tech Stack](#tech-stack)
   - [Features](#features)
+  - [Screenshots](#screenshots)
   - [Run Server Locally](#run-server-locally)
   - [Run Client Locally](#run-client-locally)
   - [Authors](#authors)
@@ -26,7 +27,21 @@ Fullstack messenger application built with React & PHP
 
 - Authorization & authentication
 - Messages between two users
-- Rooms with multiple users
+- Light and dark theme
+- Custom backgrounds
+
+## Screenshots
+
+![Login](https://i.postimg.cc/vHFyfLKJ/1.jpg "Login")
+![Register](https://i.postimg.cc/xTv2RNDc/2.jpg "Register")
+![Error handling](https://i.postimg.cc/CxJVyyK0/3.jpg "Error handling")
+![Home](https://i.postimg.cc/6pBN16tz/4.jpg "Home")
+![Search](https://i.postimg.cc/MGTJqscQ/5.jpg "Search")
+![Messaging](https://i.postimg.cc/9M66PCLd/6.jpg "Messaging")
+![Settings](https://i.postimg.cc/tgMQThPm/7.jpg "Settings")
+![Backgrounds](https://i.postimg.cc/sXGFZv4f/8.jpg "Backgrounds")
+![Dark theme](https://i.postimg.cc/7hSpmdRp/9.jpg "Dark theme")
+![Redux](https://i.postimg.cc/Fs4t7Fdm/10.jpg "Redux")
 
 ## Run Server Locally
 
