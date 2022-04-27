@@ -4,6 +4,7 @@
         "firebase/php-jwt": "^6.1",
         "vlucas/phpdotenv": "^5.4",
         "slim/psr7": "^1.5",
-        "slim/http": "^1.2"
+        "slim/http": "^1.2",
+        "psr/log": "^1.1"
     }
 }
