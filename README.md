@@ -1,7 +1,7 @@
 
 # Messenger
 
-Fullstack messenger application built with React & PHP
+Fullstack messenger application built with React & PHP. Currently migrating to Python
 
 ## Table of contents
 
@@ -10,6 +10,7 @@ Fullstack messenger application built with React & PHP
   - [Tech Stack](#tech-stack)
   - [Features](#features)
   - [Screenshots](#screenshots)
+  - [Demo](#demo)
   - [Run Server Locally](#run-server-locally)
   - [Run Client Locally](#run-client-locally)
   - [Authors](#authors)
@@ -32,16 +33,11 @@ Fullstack messenger application built with React & PHP
 
 ## Screenshots
 
-![Login](https://i.postimg.cc/vHFyfLKJ/1.jpg "Login")
-![Register](https://i.postimg.cc/xTv2RNDc/2.jpg "Register")
-![Error handling](https://i.postimg.cc/CxJVyyK0/3.jpg "Error handling")
-![Home](https://i.postimg.cc/6pBN16tz/4.jpg "Home")
-![Search](https://i.postimg.cc/MGTJqscQ/5.jpg "Search")
-![Messaging](https://i.postimg.cc/9M66PCLd/6.jpg "Messaging")
-![Settings](https://i.postimg.cc/tgMQThPm/7.jpg "Settings")
-![Backgrounds](https://i.postimg.cc/sXGFZv4f/8.jpg "Backgrounds")
-![Dark theme](https://i.postimg.cc/7hSpmdRp/9.jpg "Dark theme")
-![Redux](https://i.postimg.cc/Fs4t7Fdm/10.jpg "Redux")
+https://postimg.cc/gallery/23wCWwN
+
+## Demo
+
+http://h91115tq.beget.tech/
 
 ## Run Server Locally
 
@@ -67,7 +63,7 @@ Add these lines to `httpd-vhosts.conf` in your apache config folder
 ```bash
 
 <VirtualHost *:80>
-    DocumentRoot "D:/xampp/htdocs/messenger/public"
+    DocumentRoot "D:/xampp/htdocs/messenger"
     ServerName localhost
 </VirtualHost>
 ```
@@ -100,4 +96,5 @@ Start the server
 - [Bogdan Objilean](https://github.com/Bodea0001)
 
 ## Documentation
+
 [Documentation](https://docs.google.com/document/d/1Sj9O9VG-3JCUWKqGXQ3qXcUCj3VESROB30O5tMx-igg/edit?usp=sharing)
