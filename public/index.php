@@ -17,4 +17,11 @@ require __DIR__ . '/../routes/homeRoutes.php';
 require __DIR__ . '/../routes/chatRoutes.php';
 require __DIR__ . '/../routes/messageRoutes.php';
 
+// serve client
+$app->get('/{path:.*}', function($request, $response, $args) {
+  $file = '../client/build/index.html';
+
+  return $response->write(file_get_contents($file));
+});
+
 $app->run();
