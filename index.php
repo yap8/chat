@@ -19,7 +19,7 @@ require __DIR__ . '/routes/messageRoutes.php';
 
 // serve client
 $app->get('/{path:.*}', function($request, $response, $args) {
-  $file = __DIR__ . '/client/build/index.html';
+  $file = __DIR__ . '/index.html';
 
   return $response->write(file_get_contents($file));
 });
