@@ -1,67 +1,67 @@
-import { Link, useNavigate } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
-import { useEffect, useState } from "react"
-import { toast } from "react-toastify"
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
-import Form, { FormGroup, FormInput, FormTitle } from "../components/Form/Form"
-import Button from "../components/Button"
-import { register } from "../redux/actions/authActions"
+import Form, { FormGroup, FormInput, FormTitle } from '../components/Form/Form';
+import Button from '../components/Button';
+import { register } from '../redux/actions/authActions';
 
 const Register = () => {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const success = useSelector(state => state.request.success)
-  const auth = useSelector(state => state.auth)
+  const success = useSelector((state) => state.request.success);
+  const auth = useSelector((state) => state.auth);
 
   const [formData, setFormData] = useState({
     name: '',
     username: '',
     email: '',
-    password: ''
-  })
+    password: '',
+  });
 
   useEffect(() => {
-    if (auth) navigate('/')
-  }, [auth, navigate])
+    if (auth) navigate('/');
+  }, [auth, navigate]);
 
   useEffect(() => {
     if (success) {
-      toast.success('Successfully registered')
+      toast.success('Successfully registered');
 
-      navigate('/login')
+      navigate('/login');
     }
-  }, [success, navigate])
+  }, [success, navigate]);
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const { name, username, email, password } = formData
+    const { name, username, email, password } = formData;
 
-    dispatch(register(name, username, email, password))
+    dispatch(register(name, username, email, password));
 
     setFormData({
       ...formData,
-      password: ''
-    })
-  }
+      password: '',
+    });
+  };
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   return (
-    <div className='p-4 sm:w-1/2 md:w-1/3 bg-white shadow rounded'>
+    <div className="p-4 sm:w-1/2 md:w-1/3 bg-white shadow rounded">
       <Form onSubmit={handleSubmit}>
         <FormGroup>
           <FormTitle className="text-center">Register</FormTitle>
         </FormGroup>
         <FormGroup>
           <FormInput
-            name='name'
+            name="name"
             label
             value={formData.name}
             onChange={handleChange}
@@ -69,7 +69,7 @@ const Register = () => {
         </FormGroup>
         <FormGroup>
           <FormInput
-            name='username'
+            name="username"
             label
             value={formData.username}
             onChange={handleChange}
@@ -77,7 +77,7 @@ const Register = () => {
         </FormGroup>
         <FormGroup>
           <FormInput
-            name='email'
+            name="email"
             label
             value={formData.email}
             onChange={handleChange}
@@ -85,7 +85,7 @@ const Register = () => {
         </FormGroup>
         <FormGroup>
           <FormInput
-            name='password'
+            name="password"
             label
             value={formData.password}
             onChange={handleChange}
@@ -94,10 +94,12 @@ const Register = () => {
         <FormGroup>
           <Button className="w-full">Login</Button>
         </FormGroup>
-        <Link to="/login" className="text-blue-500 hover:underline">Already have an account?</Link>
+        <Link to="/login" className="text-blue-500 hover:underline">
+          Already have an account?
+        </Link>
       </Form>
     </div>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;

@@ -1,61 +1,60 @@
-import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { Link, useNavigate } from "react-router-dom"
-import { toast } from 'react-toastify'
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 
-import Form, { FormGroup, FormInput, FormTitle } from "../components/Form/Form"
-import Button from "../components/Button"
-import { login } from '../redux/actions/authActions'
+import Form, { FormGroup, FormInput, FormTitle } from '../components/Form/Form';
+import Button from '../components/Button';
+import { login } from '../redux/actions/authActions';
 
 const Login = () => {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const auth = useSelector(state => state.auth)
-  const success = useSelector(state => state.request.success)
+  const auth = useSelector((state) => state.auth);
+  const success = useSelector((state) => state.request.success);
 
   const [formData, setFormData] = useState({
     email: '',
-    password: ''
-  })
+    password: '',
+  });
 
   useEffect(() => {
-    if (auth) navigate('/')
-  }, [auth, navigate])
+    if (auth) navigate('/');
+  }, [auth, navigate]);
 
   useEffect(() => {
-    if (success) navigate('/')
-  }, [success, navigate])
+    if (success) navigate('/');
+  }, [success, navigate]);
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const { email, password } = formData
+    const { email, password } = formData;
 
-    dispatch(login(email, password))
+    dispatch(login(email, password));
 
     setFormData({
       ...formData,
-      password: ''
-    })
-  }
+      password: '',
+    });
+  };
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   return (
-    <div className='p-4 sm:w-1/2 md:w-1/3 bg-white shadow rounded'>
+    <div className="p-4 sm:w-1/2 md:w-1/3 bg-white shadow rounded">
       <Form onSubmit={handleSubmit}>
         <FormGroup>
           <FormTitle className="text-center">Login</FormTitle>
         </FormGroup>
         <FormGroup>
           <FormInput
-            name='email'
+            name="email"
             label
             value={formData.email}
             onChange={handleChange}
@@ -63,7 +62,7 @@ const Login = () => {
         </FormGroup>
         <FormGroup>
           <FormInput
-            name='password'
+            name="password"
             label
             value={formData.password}
             onChange={handleChange}
@@ -72,10 +71,13 @@ const Login = () => {
         <FormGroup>
           <Button className="w-full">Login</Button>
         </FormGroup>
-        Need an account? <Link to="/register" className="text-blue-500 hover:underline">Register</Link>
+        Need an account?{' '}
+        <Link to="/register" className="text-blue-500 hover:underline">
+          Register
+        </Link>
       </Form>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
